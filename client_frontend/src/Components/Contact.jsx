@@ -5,24 +5,54 @@ const Contact = () => {
       <footer className=" bg-gray-200 rounded-lg pl-2 pr-2 ">
         <div className="max-w-7xl  py-8 mx-auto flex flex-col md:flex-row justify-between gap-8 px-4">
           <div>
-            <h2 className="text-[#6870D1] text-2xl font-bold">Kritika enterprises</h2>
-            <div className=''>
-              <a href="tel:+919927055680" className=" hover:underline">+91 9927055680</a>
-            <br/>
-            <a href="mailto:email@example.com" className=" hover:underline">email@example.com</a>
-            <div className="mt-4 ">
-              C-8 Butler Plaza<br />
-              Civil Lines, Bareilly
-            </div>
+            <h2 className="text-[#6870D1] text-2xl font-bold">
+              Kritika enterprises
+            </h2>
+            <div className="">
+              <a href="tel:+919927055680" className=" hover:underline">
+                +91 9927055680
+              </a>
+              <br />
+              <a href="mailto:email@example.com" className=" hover:underline">
+                email@example.com
+              </a>
+              <div className="mt-4 ">
+                C-8 Butler Plaza
+                <br />
+                Civil Lines, Bareilly
+              </div>
             </div>
           </div>
-          
+
           <div>
-            <h4 className="font-semibold mb-2   text-bold text-xl hover:underline hover:cursor-pointer"><a href="/products">Products</a></h4>
+            <h4 className="font-semibold mb-2   text-bold text-xl hover:underline hover:cursor-pointer">
+              <a href="/products">Products</a>
+            </h4>
             <ul className="space-y-1 ">
-              <li><a href="/products/B2B" className="hover:underline   hover:cursor-pointer">B2B products</a></li>
-              <li><a href="/products#laptops" className="hover:underline   hover:cursor-pointer">Laptops</a></li>
-              <li><a href="/products#medical-equipments" className="hover:underline hover:cursor-pointer">Medical equipments</a></li>
+              <li>
+                <a
+                  href="/products/B2B"
+                  className="hover:underline   hover:cursor-pointer"
+                >
+                  B2B products
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/products#laptops"
+                  className="hover:underline   hover:cursor-pointer"
+                >
+                  Laptops
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/products#medical-equipments"
+                  className="hover:underline hover:cursor-pointer"
+                >
+                  Medical equipments
+                </a>
+              </li>
             </ul>
           </div>
           <div className="w-3/4 md:w-96 h-40">
@@ -43,7 +73,7 @@ const Contact = () => {
         </div>
       </footer>
     </>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

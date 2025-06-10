@@ -1,4 +1,3 @@
-
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Leftbar from "./Components/Leftbar";
@@ -11,20 +10,19 @@ import Contact from "./Components/Contact";
 
 const App = () => {
   return (
-    <div div className="relative z-0">
-       <Navbar />
-      <Leftbar  />
-      <div  className="pt-20 pl-52 overflow-visible">
-        
-            <Routes>
-              <Route path="/" element={<Herosection />} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/Signup" element={<SignUp />} />
-              <Route path="/Login" element={<Login />} />
-            </Routes>
-            <Contact />
-        </div>
+    <div className="relative z-0">
+      <Navbar />
+      <Leftbar />
+      <div className="pt-20 pl-52 overflow-visible">
+        <Routes>
+          <Route path="/" element={<Herosection />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/Signup" element={<SignUp />} />
+          <Route path="/Login" element={<Login />} />
+        </Routes>
+        <Contact />
+      </div>
     </div>
   );
 };
