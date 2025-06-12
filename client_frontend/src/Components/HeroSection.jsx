@@ -51,17 +51,7 @@ const HeroSection = () => {
           <Advisorform />
         </div>
 
-          {/* Brands section */}
-        <div className=" mt-8">
-          <h2 className="text-2xl  sm:text-3xl text-center font-bold">
-            <span className="bg-[#040273] text-white rounded-full px-4 py-1 inline-block">
-              Our Associated Brands
-            </span>
-          </h2>
-          <div className="w-full mt-4 ">
-            <InfiniteScrollLogos />
-          </div>
-        </div>
+         
 
         <div className="  pl-4 pr-4  mx-auto bg-[#040273] rounded-3xl sm:p-12 text-white shadow-xl flex flex-col-reverse lg:flex-row gap-8 items-center">
           {/* Left: Text */}
@@ -75,12 +65,16 @@ const HeroSection = () => {
                     <TypeAnimation
                       sequence={[
                         'Laptops', 500,
-                        'Medical Equipments', 500,
+                        'Gaming Components ', 500,
                         'Monitors', 500,
                         'Desktops', 500,
                         'Gaming Laptops', 500,
-                        'Workstations', 500,
-                        'IT Accessories', 500
+                        'Digital boards', 500,
+                        'Printers ', 500, 
+                        'Servers' ,500,
+                        'Softwares',500,
+                        'Storages' ,500,
+                        'Input devices',500
                       ]}
                       wrapper="span"
                       cursor={true}
@@ -117,6 +111,18 @@ const HeroSection = () => {
                 />
               ))}
             </div>
+          </div>
+        </div>
+
+         {/* Brands section */}
+        <div className=" mt-8">
+          <h2 className="text-2xl  sm:text-3xl text-center font-bold">
+            <span className="bg-[#040273] text-white rounded-full px-4 py-1 inline-block">
+              Our Associated Brands
+            </span>
+          </h2>
+          <div className="w-full mt-4 ">
+            <InfiniteScrollLogos />
           </div>
         </div>
       </div>

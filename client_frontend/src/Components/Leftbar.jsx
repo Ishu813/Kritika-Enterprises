@@ -1,150 +1,125 @@
-import { useState, useEffect, useRef } from "react";
-import { FaHome, FaBox, FaCogs } from "react-icons/fa";
+import { useState } from "react";
+import { FaHome, FaBox, FaCogs, FaChevronRight, FaHandsHelping } from "react-icons/fa";
+import { HiOutlineLightBulb } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
 const Leftbar = () => {
-  const [productsOpen, setProductsOpen] = useState(false);
-  const [b2cOpen, setB2cOpen] = useState(false);
-  const [b2bOpen, setB2bOpen] = useState(false);
-  const containerRef = useRef(null);
-
-  useEffect(() => {
-    const handleClickOutSide = (event) => {
-      if (
-        containerRef.current &&
-        !containerRef.current.contains(event.target)
-      ) {
-        setProductsOpen(false);
-        setB2cOpen(false);
-        setB2bOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutSide);
-    return () => document.removeEventListener("mousedown", handleClickOutSide);
-  }, []);
-
+  const [activeMain, setActiveMain] = useState(null); // "products" | "solutions" | null
+  const [activeSub, setActiveSub] = useState(null);   // "b2b" | "b2c" | null
   return (
-    <div className="fixed inset-0 z-40">
+    // The sidebar is hidden on small screens, visible on sm and up
+    <div>
       <div
-        className="fixed top-[9%] left-0 w-52 h-screen border-r-2 p-4 z-50 bg-white"
+        className="fixed top-20 left-0 h-[calc(100vh-4rem)] border-r-2 z-10 bg-white transition-all duration-300 group hover:w-52 w-16 hidden sm:block"
         onClick={(e) => {
-          e.stopPropagation(); // prevent bubbling to global click //chatgpt
-          setProductsOpen(false);
-          setB2cOpen(false);
-          setB2bOpen(false);
+          e.stopPropagation();
         }}
       >
         <div className="space-y-4">
-          <div className="flex items-center gap-6 px-3 py-4 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md cursor-pointer transition-colors">
-            <FaHome className="text-lg" />
-            <span className="text-sm font-bold">Home</span>
-          </div>
+          <Link to='/' className="flex items-center gap-6 px-1 group-hover:px-3 py-4 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md cursor-pointer transition-colors justify-center group-hover:justify-start">
+            <FaHome className="text-lg hover:text-blue-600" />
+            <span className="text-sm font-bold group-hover:flex hidden">Home</span>
+          </Link>
 
+          {/* Products Dropdown */}
           <div
-            className="relative flex items-center gap-6 px-3 py-4 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md cursor-pointer transition-colors"
-            onClick={(e) => {
-              e.stopPropagation();
-              setProductsOpen(!productsOpen);
-              setB2cOpen(false);
-              setB2bOpen(false);
-            }}
-            ref={containerRef}
+            onMouseEnter={() => setActiveMain("products")}
+            onMouseLeave={() => setActiveMain(null)}
+            className="relative flex items-center gap-6 px-1 group-hover:px-3 py-4 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md cursor-pointer transition-colors justify-center group-hover:justify-start"
           >
-            <FaBox className="text-lg" />
-            <span className="text-sm font-bold">Products</span>
-
-            {productsOpen && (
-              <div className="fixed top-40 left-52 w-40 bg-white border border-gray-200 rounded shadow-md z-[999]">
-                <div
-                  className="px-4 py-2 text-gray-700 text-sm hover:bg-blue-50 cursor-pointer"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setProductsOpen(true);
-                    setB2cOpen(!b2cOpen);
-                    setB2bOpen(false);
-                  }}
-                >
-                  B2C
-                </div>
-                <div
-                  className="px-4 py-2 text-gray-700 text-sm hover:bg-blue-50 cursor-pointer"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setProductsOpen(true);
-                    setB2bOpen(!b2bOpen);
-                    setB2cOpen(false);
-                  }}
-                >
-                  B2B
-                </div>
-
-                {b2cOpen && (
-                  <div className="absolute top-0 left-40 w-40 bg-white border border-gray-200 rounded shadow-md">
-                    <Link
-                      to="/products/B2C/laptops"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50"
-                    >
-                      Laptops
-                    </Link>
-                    <Link
-                      to="/products/B2C/ram"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50"
-                    >
-                      RAM
-                    </Link>
-                    <Link
-                      to="/products/B2C/sd"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50"
-                    >
-                      SD
-                    </Link>
-                  </div>
-                )}
-
-                {b2bOpen && (
-                  <div
-                    className="absolute top-0 left-40 w-40 bg-white
-                    border border-gray-200 rounded shadow-md "
-                  >
-                    <Link
-                      to="/products/B2B/medical"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50"
-                    >
-                      Medical
-                    </Link>
-                    <Link
-                      to="/products/B2B/monitor"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50"
-                    >
-                      Monitor
-                    </Link>
-                    <Link
-                      to="/products/B2B/eltc"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50"
-                    >
-                      other
-                    </Link>
-                  </div>
-                )}
+            <FaBox className="text-lg hover:text-blue-600" />
+            <span className="text-sm font-bold  items-center justify-between w-full group-hover:flex hidden">
+              Products <FaChevronRight className="ml-auto" />
+            </span>
+            {activeMain === "products" && (
+              <div className="fixed top-20 left-52 w-40 h-screen bg-white border border-gray-200 rounded shadow-md z-[999]">
+                <Link to="/products/laptops" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Laptops</Link>
+                <Link to="/products/desktops" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Desktops</Link>
+                <Link to="/products/gaming-components" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Gaming Components</Link>
+                <Link to="/products/printers" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Printers</Link>
+                <Link to="/products/monitors" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Monitors</Link>
+                <Link to="/products/digital-boards" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Digital Boards</Link>
+                <Link to="/products/servers" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Servers</Link>
+                <Link to="/products/softwares" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Softwares</Link>
+                <Link to="/products/storages" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Storages</Link>
+                <Link to="/products/input-devices" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Input Devices</Link>
               </div>
             )}
           </div>
 
+          {/* Solutions Dropdown with B2B/B2C submenus */}
           <div
-            className="flex items-center gap-6 px-3 py-4 text-gray-700 hover:bg-blue-50
-           hover:text-blue-600 rounded-md cursor-pointer transition-colors"
+            onMouseEnter={() => setActiveMain("solutions")}
+            onMouseLeave={() => { setActiveMain(null); setActiveSub(null); }}
+            className="relative flex items-center gap-6 px-1 group-hover:px-3 py-4 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md cursor-pointer transition-colors justify-center group-hover:justify-start"
           >
-            <FaCogs className="text-lg" />
-            <span className="text-sm font-bold">Services</span>
+            <HiOutlineLightBulb className="text-2xl  hover:text-blue-600" />
+            <span className="text-sm font-bold items-center justify-between w-full group-hover:flex hidden">
+              Solutions <FaChevronRight className="ml-auto" />
+            </span>
+            {activeMain === "solutions" && (
+              <div className="fixed top-20 left-52 w-40 h-screen bg-white border border-gray-200 rounded shadow-md z-[999] flex flex-col">
+                <div
+                  onMouseEnter={() => setActiveSub("b2b")}
+                  onMouseLeave={() => setActiveSub(null)}
+                  className="relative"
+                >
+                  <div className={`px-4 py-2 cursor-pointer flex justify-between ${activeSub === 'b2b' ? 'text-blue-600' : 'text-gray-700'} hover:bg-blue-50 hover:text-blue-600`}>
+                    B2B <FaChevronRight />
+                  </div>
+                  {activeSub === "b2b" && (
+                    <div className="fixed top-[9.7%] left-[25.5%] w-40 h-screen bg-white border border-gray-200 rounded shadow-md z-[1000]">
+                      <Link to="/products/laptops" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Laptops</Link>
+                      <Link to="/products/desktops" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Desktops</Link>
+                      <Link to="/products/gaming-components" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Gaming Components</Link>
+                      <Link to="/products/printers" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Printers</Link>
+                      <Link to="/products/monitors" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Monitors</Link>
+                      <Link to="/products/digital-boards" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Digital Boards</Link>
+                      <Link to="/products/servers" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Servers</Link>
+                      <Link to="/products/softwares" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Softwares</Link>
+                      <Link to="/products/storages" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Storages</Link>
+                      <Link to="/products/input-devices" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Input Devices</Link>
+                    </div>
+                  )}
+                </div>
+                <div
+                  onMouseEnter={() => setActiveSub("b2c")}
+                  onMouseLeave={() => setActiveSub(null)}
+                  className="relative group"
+                >
+                  <div className={`px-4 py-2 cursor-pointer flex justify-between ${activeSub === 'b2c' ? 'text-blue-600' : 'text-gray-700'} hover:bg-blue-50 hover:text-blue-600`}>
+                    B2C <FaChevronRight />
+                  </div>
+                  {activeSub === "b2c" && (
+                    <div className="fixed top-[9.7%] left-[25.5%] w-40 h-screen bg-white border border-gray-200 rounded shadow-md z-[1000]">
+                      <Link to="/products/laptops" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Laptops</Link>
+                      <Link to="/products/desktops" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Desktops</Link>
+                      <Link to="/products/gaming-components" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Gaming Components</Link>
+                      <Link to="/products/printers" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Printers</Link>
+                      <Link to="/products/monitors" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Monitors</Link>
+                      <Link to="/products/digital-boards" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Digital Boards</Link>
+                      <Link to="/products/servers" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Servers</Link>
+                      <Link to="/products/softwares" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Softwares</Link>
+                      <Link to="/products/storages" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Storages</Link>
+                      <Link to="/products/input-devices" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Input Devices</Link>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
           </div>
 
-          <div
-            className="flex items-center gap-6 px-3 py-4 text-gray-700 hover:bg-blue-50
-           hover:text-blue-600 rounded-md cursor-pointer transition-colors"
+          <Link  to='/services' className="flex items-center gap-6 px-1 group-hover:px-3 py-4 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md cursor-pointer transition-colors justify-center group-hover:justify-start">
+            <FaCogs className="text-lg  hover:text-blue-600" />
+            <span className="text-sm font-bold group-hover:flex hidden">Services</span>
+          </Link>
+          <Link
+            to="/advisory"
+            className="flex items-center gap-6 px-1 group-hover:px-3 py-4 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md transition-colors justify-center group-hover:justify-start"
           >
-            <FaCogs className="text-lg" />
-            <span className="text-sm font-bold">Solutions</span>
-          </div>
+            <FaHandsHelping className="text-lg  hover:text-blue-600" />
+            <span className="text-sm font-bold group-hover:flex hidden">Expert Assistance</span>
+          </Link>
         </div>
       </div>
     </div>

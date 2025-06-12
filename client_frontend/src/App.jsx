@@ -7,19 +7,21 @@ import Services from "./Components/Services";
 import SignUp from "./Components/SignUp";
 import Login from "./Components/Login";
 import Contact from "./Components/Contact";
+import Advisorform from "./Components/Advisorform";
 
 const App = () => {
   return (
     <div className="relative z-0">
       <Navbar />
       <Leftbar />
-      <div className="pt-20 pl-52 overflow-visible">
+      <div className="pt-20 sm:pl-16 pl-0 overflow-visible">
         <Routes>
           <Route path="/" element={<Herosection />} />
           <Route path="/products" element={<Products />} />
           <Route path="/services" element={<Services />} />
           <Route path="/Signup" element={<SignUp />} />
           <Route path="/Login" element={<Login />} />
+          <Route path="/advisory" element ={<Advisorform/>}/>
         </Routes>
         <Contact />
       </div>
