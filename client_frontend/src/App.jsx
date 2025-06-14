@@ -1,13 +1,13 @@
 import { Routes, Route } from "react-router-dom";
-import Navbar from "./Components/Navbar";
-import Leftbar from "./Components/Leftbar";
-import Herosection from "./Components/HeroSection";
-import Products from "./Components/Products";
-import Services from "./Components/Services";
-import SignUp from "./Components/SignUp";
-import Login from "./Components/Login";
-import Contact from "./Components/Contact";
-import Advisorform from "./Components/Advisorform";
+import Navbar from "./components/Navbar";
+import Leftbar from "./components/Leftbar";
+import Herosection from "./components/HeroSection";
+import ProductsPage from "./pages/ProductsPage";
+import Services from "./components/Services";
+import SignUp from "./components/SignUp";
+import Login from "./components/Login";
+import Contact from "./components/Contact";
+import Advisorform from "./components/Advisorform";
 
 const App = () => {
   return (
@@ -17,11 +17,11 @@ const App = () => {
       <div className="pt-20 pl-16 overflow-visible">
         <Routes>
           <Route path="/" element={<Herosection />} />
-          <Route path="/products" element={<Products />} />
+          <Route path="/products" element={<ProductsPage />} />
           <Route path="/services" element={<Services />} />
           <Route path="/Signup" element={<SignUp />} />
           <Route path="/Login" element={<Login />} />
-          <Route path="/advisory" element ={<Advisorform/>}/>
+          <Route path="/advisory" element={<Advisorform />} />
         </Routes>
         <Contact />
       </div>
