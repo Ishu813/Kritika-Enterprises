@@ -41,7 +41,7 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="flex flex-col w-[100%]  object-cover  text-[#1F2937]">
+    <div className="flex flex-col w-full object-cover text-[#1F2937] pl-0 pr-2 sm:pl-4 sm:pr-4">
       <ProductsCarosel />
 
       <div className="min-h-screen">
@@ -53,9 +53,9 @@ const HeroSection = () => {
 
          
 
-        <div className="  pl-4 pr-4  mx-auto bg-[#040273] rounded-3xl sm:p-12 text-white shadow-xl flex flex-col-reverse lg:flex-row gap-8 items-center">
+        <div className="pl-2 pr-2 sm:pl-4 sm:pr-4 mx-auto bg-[#040273] rounded-xl sm:rounded-3xl p-4 sm:p-8 text-white shadow-xl flex flex-col-reverse lg:flex-row gap-4 sm:gap-8 items-center">
           {/* Left: Text */}
-          <div className=" lg:w-1/2">
+          <div className="w-full lg:w-1/2 text-left">
             <div className="font-bold text-[#F33539] text-3xl sm:text-4xl md:text-5xl mb-4">Kritika-Enterprises</div>
             <div className="mt-4 text">
               <h2 className="text-xl sm:text-2xl font-semibold mb-2">
@@ -84,7 +84,7 @@ const HeroSection = () => {
                   </span>
                 </span>
               </h2>
-              <p className="text-md sm:text-lg mt-4 sm:w-4/5">
+              <p className="text-sm sm:text-md mt-2 sm:mt-4 w-full sm:w-4/5 mx-auto lg:mx-0">
                 At Kritika Enterprises, we specialize in providing high-performance hardware solutions for both businesses and individual consumers.
                 We deliver only the best from leading global brands like HP, Dell, and ASUS. Whether you're a hospital, a startup, or a home user,
                 we ensure fast, reliable tech solutions with unmatched support.
@@ -94,7 +94,7 @@ const HeroSection = () => {
 
           {/* Right: Carousel */}
           <div
-            className="relative w-full lg:w-1/2 h-48 sm:h-64 md:h-80 lg:h-96 rounded-lg overflow-hidden bg-white shadow-md"
+            className="relative w-full lg:w-1/2 h-40 sm:h-56 md:h-72 lg:h-96 rounded-md sm:rounded-lg overflow-hidden bg-white shadow-md"
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
           >

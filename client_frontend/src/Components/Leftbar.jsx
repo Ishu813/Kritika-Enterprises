@@ -10,7 +10,7 @@ const Leftbar = () => {
     // The sidebar is hidden on small screens, visible on sm and up
     <div>
       <div
-        className="fixed top-20 left-0 h-[calc(100vh-4rem)] border-r-2 z-10 bg-white transition-all duration-300 group hover:w-52 w-16 hidden sm:block"
+        className="fixed top-20 left-0 h-[calc(100vh-4rem)] border-r-2 z-10 bg-white transition-all duration-300 group hover:w-40 w-12 sm:block"
         onClick={(e) => {
           e.stopPropagation();
         }}
@@ -32,7 +32,7 @@ const Leftbar = () => {
               Products <FaChevronRight className="ml-auto" />
             </span>
             {activeMain === "products" && (
-              <div className="fixed top-20 left-52 w-40 h-screen bg-white border border-gray-200 rounded shadow-md z-[999]">
+              <div className="fixed top-20 left-40 w-32 h-screen bg-white border border-gray-200 rounded shadow-md z-[999]">
                 <Link to="/products/laptops" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Laptops</Link>
                 <Link to="/products/desktops" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Desktops</Link>
                 <Link to="/products/gaming-components" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Gaming Components</Link>
@@ -58,7 +58,7 @@ const Leftbar = () => {
               Solutions <FaChevronRight className="ml-auto" />
             </span>
             {activeMain === "solutions" && (
-              <div className="fixed top-20 left-52 w-40 h-screen bg-white border border-gray-200 rounded shadow-md z-[999] flex flex-col">
+              <div className="fixed top-20 left-40 w-32 h-screen bg-white border border-gray-200 rounded shadow-md z-[999] flex flex-col">
                 <div
                   onMouseEnter={() => setActiveSub("b2b")}
                   onMouseLeave={() => setActiveSub(null)}
@@ -68,7 +68,7 @@ const Leftbar = () => {
                     B2B <FaChevronRight />
                   </div>
                   {activeSub === "b2b" && (
-                    <div className="fixed top-[9.7%] left-[25.5%] w-40 h-screen bg-white border border-gray-200 rounded shadow-md z-[1000]">
+                    <div className="fixed top-20 left-[17rem] w-32 h-screen bg-white border border-gray-200 rounded shadow-md z-[1000]">
                       <Link to="/products/laptops" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Laptops</Link>
                       <Link to="/products/desktops" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Desktops</Link>
                       <Link to="/products/gaming-components" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Gaming Components</Link>
@@ -91,7 +91,7 @@ const Leftbar = () => {
                     B2C <FaChevronRight />
                   </div>
                   {activeSub === "b2c" && (
-                    <div className="fixed top-[9.7%] left-[25.5%] w-40 h-screen bg-white border border-gray-200 rounded shadow-md z-[1000]">
+                    <div className="fixed top-20 left-[17rem] w-32 h-screen bg-white border border-gray-200 rounded shadow-md z-[1000]">
                       <Link to="/products/laptops" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Laptops</Link>
                       <Link to="/products/desktops" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Desktops</Link>
                       <Link to="/products/gaming-components" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Gaming Components</Link>
