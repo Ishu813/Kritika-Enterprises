@@ -14,7 +14,7 @@ const App = () => {
     <div className="relative z-0">
       <Navbar />
       <Leftbar />
-      <div className="pt-20 pl-16 overflow-visible">
+      <div className="pt-20 sm:pl-16 pl-0 overflow-visible">
         <Routes>
           <Route path="/" element={<Herosection />} />
           <Route path="/products" element={<ProductsPage />} />
