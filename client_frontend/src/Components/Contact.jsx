@@ -2,10 +2,10 @@ const Contact = () => {
   return (
     <>
       {/* Contact info */}
-      <footer className=" bg-gray-200 rounded-lg pl-4 pr-4 sm:pl-8 sm:pr-8 ">
-        <div className="max-w-7xl  py-6 sm:py-8 mx-auto flex flex-col md:flex-row justify-between gap-6 sm:gap-8 px-2 sm:px-4">
-          <div>
-            <h2 className="text-[#6870D1] text-2xl font-bold">
+      <footer className=" bg-[#040273] rounded-lg pl-4 pr-4 sm:pl-8 sm:pr-8 ">
+        <div className="max-w-7xl  text-white py-6 sm:py-8 mx-auto flex flex-col md:flex-row justify-between gap-6 sm:gap-8 px-2 sm:px-4">
+          <div> 
+            <h2 className="text-[#F33539] text-2xl font-bold">
               Kritika enterprises
             </h2>
             <div className="">
@@ -68,7 +68,7 @@ const Contact = () => {
             ></iframe>
           </div>
         </div>
-        <div className="text-center text-sm ">
+        <div className="text-center text-white text-sm ">
           © 2025 KE. All rights reserved.
         </div>
       </footer>
