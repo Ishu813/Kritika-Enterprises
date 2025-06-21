@@ -2,21 +2,21 @@ const Contact = () => {
   return (
     <>
       {/* Contact info */}
-      <footer className=" bg-[#040273] rounded-lg pl-4 pr-4 sm:pl-8 sm:pr-8 ">
+      <footer className=" bg-[#192747]  rounded-lg pl-2 pr-4 sm:pl-8 sm:pr-8 ">
         <div className="max-w-7xl  text-white py-6 sm:py-8 mx-auto flex flex-col md:flex-row justify-between gap-6 sm:gap-8 px-2 sm:px-4">
           <div> 
             <h2 className="text-[#F33539] text-2xl font-bold">
               Kritika enterprises
             </h2>
             <div className="">
-              <a href="tel:+919927055680" className=" hover:underline">
+              <a href="tel:+919927055680" className="text-[#a1c2ef] hover:underline">
                 +91 9927055680
               </a>
               <br />
-              <a href="mailto:email@example.com" className=" hover:underline">
+              <a href="mailto:email@example.com" className="text-[#a1c2ef] hover:underline">
                 email@example.com
               </a>
-              <div className="mt-4 ">
+              <div className="mt-4 text-[#a1c2ef] ">
                 C-8 Butler Plaza
                 <br />
                 Civil Lines, Bareilly
@@ -25,14 +25,14 @@ const Contact = () => {
           </div>
 
           <div>
-            <h4 className="font-semibold mb-2   text-bold text-xl hover:underline hover:cursor-pointer">
+            <h4 className="font-semibold mb-2 text-[#a1c2ef]  text-bold text-xl hover:underline hover:cursor-pointer">
               <a href="/products">Products</a>
             </h4>
             <ul className="space-y-1 ">
               <li>
                 <a
                   href="/products/B2B"
-                  className="hover:underline   hover:cursor-pointer"
+                  className="hover:underline text-[#a1c2ef]  hover:cursor-pointer"
                 >
                   B2B products
                 </a>
@@ -40,7 +40,7 @@ const Contact = () => {
               <li>
                 <a
                   href="/products#laptops"
-                  className="hover:underline   hover:cursor-pointer"
+                  className="hover:underline text-[#a1c2ef]  hover:cursor-pointer"
                 >
                   Laptops
                 </a>
@@ -48,7 +48,7 @@ const Contact = () => {
               <li>
                 <a
                   href="/products#medical-equipments"
-                  className="hover:underline hover:cursor-pointer"
+                  className="hover:underline text-[#a1c2ef] hover:cursor-pointer"
                 >
                   Medical equipments
                 </a>
@@ -68,7 +68,7 @@ const Contact = () => {
             ></iframe>
           </div>
         </div>
-        <div className="text-center text-white text-sm ">
+        <div className="text-center text-[#a1c2ef] text-sm ">
           © 2025 KE. All rights reserved.
         </div>
       </footer>
