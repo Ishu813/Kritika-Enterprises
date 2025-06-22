@@ -192,7 +192,10 @@ const ExpertAssistance = () => {
               <h2 className="text-2xl font-bold text-white mb-6">Contact Methods</h2>
               <div className="space-y-6">
                 {contactMethods.map((method, index) => (
-                  <div key={index} className="flex items-start space-x-4">
+                  <div
+                    key={index}
+                    className="flex flex-col sm:flex-row sm:items-start sm:space-x-4 space-y-2 sm:space-y-0"
+                  >
                     <div className="flex-shrink-0">
                       <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
                         <method.icon className="h-6 w-6 text-white" />
