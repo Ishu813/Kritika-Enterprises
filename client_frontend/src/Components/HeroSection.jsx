@@ -7,6 +7,10 @@ import img3 from '../assets/store3.jpeg';
 import img4 from '../assets/store4.jpeg';
 import img5 from '../assets/store5.jpeg';
 import img6 from '../assets/store6.jpeg';
+import Founder from './Founder';
+import Testimonials from './Testimonials';
+
+
 import { 
   Building2, 
   ShoppingCart, 
@@ -201,33 +205,10 @@ const HeroSection = () => {
         </div>
 
 
-        <div className=" mt-8 mb-8 text-center">
-          <div className="inline-block p-8 rounded-lg bg-gradient-to-r from-blue-900 to-purple-900 border border-blue-500">
-            <h3 className="text-2xl font-bold text-white mb-4">
-              Join 50,000+ Satisfied Customers
-            </h3>
-            <p className="text-blue-200 mb-6">
-              Experience the difference with our premium gaming and tech solutions
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center sm:space-x-8 space-y-4 sm:space-y-0 text-center items-center">
-              <div>
-                <div className="text-3xl font-bold text-blue-400">50K+</div>
-                <div className="text-blue-200">Happy Customers</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-blue-400">500+</div>
-                <div className="text-blue-200">Products</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-blue-400">99%</div>
-                <div className="text-blue-200">Satisfaction Rate</div>
-              </div>
-            </div>
-          </div>
-        </div>
+       <Founder/>
 
 
-
+<Testimonials/>
 
         
       </div>
