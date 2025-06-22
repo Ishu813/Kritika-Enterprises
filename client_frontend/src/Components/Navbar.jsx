@@ -43,10 +43,26 @@ const Navbar = () => {
 
       {/* Mobile dropdown list */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-20 left-0 w-full bg-white border-t border-gray-200 z-50">
+        <div className="md:hidden absolute top-20 left-0 w-full bg-[#0f172a] border-t border-gray-200 z-50">
           <div className="flex flex-col gap-4 px-6 py-4 text-lg font-semibold text-center">
-            <NavLink to="/Login" onClick={() => setisMenuOpen(false)} className="hover:text-blue-600">Login</NavLink>
-            <NavLink to="/SignUp" onClick={() => setisMenuOpen(false)} className="hover:text-blue-600">SignUp</NavLink>
+            <NavLink
+              to="/Login"
+              onClick={() => setisMenuOpen(false)}
+              className={({ isActive }) =>
+                `text-white ${isActive ? 'underline' : ''} hover:text-blue-400`
+              }
+            >
+              Login
+            </NavLink>
+            <NavLink
+              to="/SignUp"
+              onClick={() => setisMenuOpen(false)}
+              className={({ isActive }) =>
+                `text-white ${isActive ? 'underline' : ''} hover:text-blue-400`
+              }
+            >
+              SignUp
+            </NavLink>
           </div>
         </div>
       )}
