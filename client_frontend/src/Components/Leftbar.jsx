@@ -6,6 +6,24 @@ import { Link } from "react-router-dom";
 const Leftbar = () => {
   const [activeMain, setActiveMain] = useState(null); // "products" | "solutions" | null
   const [activeSub, setActiveSub] = useState(null);   // "b2b" | "b2c" | null
+
+  const handleMenuClick = (menu) => {
+    if (activeMain === menu) {
+      setActiveMain(null);
+      setActiveSub(null);
+    } else {
+      setActiveMain(menu);
+    }
+  };
+
+  const handleSubmenuClick = (submenu) => {
+    if (activeSub === submenu) {
+      setActiveSub(null);
+    } else {
+      setActiveSub(submenu);
+    }
+  };
+
   return (
     // The sidebar is hidden on small screens, visible on sm and up
     <div className="bg-[#0f172a]">
@@ -25,6 +43,7 @@ const Leftbar = () => {
           <div
             onMouseEnter={() => setActiveMain("products")}
             onMouseLeave={() => setActiveMain(null)}
+            onTouchStart={() => handleMenuClick("products")}
             className="relative flex items-center gap-6 px-1 group-hover:px-3 py-4 text-white hover:bg-blue-50 hover:text-blue-600 rounded-md cursor-pointer transition-colors justify-center group-hover:justify-start"
           >
             <FaBox className="text-lg hover:text-blue-600" />
@@ -51,6 +70,7 @@ const Leftbar = () => {
           <div
             onMouseEnter={() => setActiveMain("solutions")}
             onMouseLeave={() => { setActiveMain(null); setActiveSub(null); }}
+            onTouchStart={() => handleMenuClick("solutions")}
             className="relative flex items-center gap-6 px-1 group-hover:px-3 py-4 text-white hover:bg-blue-50 hover:text-blue-600 rounded-md cursor-pointer transition-colors justify-center group-hover:justify-start"
           >
             <HiOutlineLightBulb className="text-2xl  hover:text-blue-600" />
@@ -62,6 +82,7 @@ const Leftbar = () => {
                 <div
                   onMouseEnter={() => setActiveSub("b2b")}
                   onMouseLeave={() => setActiveSub(null)}
+                  onTouchStart={(e) => { e.stopPropagation(); handleSubmenuClick("b2b"); }}
                   className="relative"
                 >
                   <div className={`px-4 py-2 cursor-pointer flex justify-between ${activeSub === 'b2b' ? 'text-blue-600' : 'text-white'} hover:bg-blue-50 hover:text-blue-600`}>
@@ -85,6 +106,7 @@ const Leftbar = () => {
                 <div
                   onMouseEnter={() => setActiveSub("b2c")}
                   onMouseLeave={() => setActiveSub(null)}
+                  onTouchStart={(e) => { e.stopPropagation(); handleSubmenuClick("b2c"); }}
                   className="relative group"
                 >
                   <div className={`px-4 py-2 cursor-pointer flex justify-between ${activeSub === 'b2c' ? 'text-blue-600' :  'text-white'} hover:bg-blue-50 hover:text-blue-600`}>

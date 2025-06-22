@@ -209,7 +209,7 @@ const HeroSection = () => {
             <p className="text-blue-200 mb-6">
               Experience the difference with our premium gaming and tech solutions
             </p>
-            <div className="flex justify-center space-x-8 text-center">
+            <div className="flex flex-col sm:flex-row justify-center sm:space-x-8 space-y-4 sm:space-y-0 text-center items-center">
               <div>
                 <div className="text-3xl font-bold text-blue-400">50K+</div>
                 <div className="text-blue-200">Happy Customers</div>
