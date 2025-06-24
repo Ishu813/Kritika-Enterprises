@@ -1,46 +1,48 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-const TrustedStats = () => {
+const logos = [
+  'https://cdn.worldvectorlogo.com/logos/spotify-2.svg',
+  'https://cdn.worldvectorlogo.com/logos/netflix-3.svg',
+  'https://cdn.worldvectorlogo.com/logos/tesla-9.svg',
+  'https://cdn.worldvectorlogo.com/logos/microsoft.svg',
+  'https://cdn.worldvectorlogo.com/logos/slack-new-logo.svg',
+  'https://cdn.worldvectorlogo.com/logos/twitter-6.svg',
+  'https://cdn.worldvectorlogo.com/logos/spotify-2.svg',
+  'https://cdn.worldvectorlogo.com/logos/netflix-3.svg',
+];
+
+const TrustedStatsSection = () => {
   const [counts, setCounts] = useState({
     customers: 0,
     products: 0,
     satisfaction: 0,
   });
 
-  const [startCounting, setStartCounting] = useState(false);
   const sectionRef = useRef(null);
+  const [startCounting, setStartCounting] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setStartCounting(true);
-          observer.disconnect(); // trigger only once
+          observer.disconnect();
         }
       },
       { threshold: 0.3 }
     );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
     if (!startCounting) return;
 
-    const targets = {
-      customers: 50000,
-      products: 500,
-      satisfaction: 99,
-    };
-
+    const targets = { customers: 50000, products: 500, satisfaction: 99 };
     const steps = {
-      customers: Math.ceil(targets.customers / 150),
-      products: Math.ceil(targets.products / 150),
-      satisfaction: Math.ceil(targets.satisfaction / 150),
+      customers: Math.ceil(targets.customers / 100),
+      products: Math.ceil(targets.products / 100),
+      satisfaction: Math.ceil(targets.satisfaction / 100),
     };
 
     const interval = setInterval(() => {
@@ -58,51 +60,92 @@ const TrustedStats = () => {
         if (allReached) clearInterval(interval);
         return updated;
       });
-    }, 40); // slower and smoother
+    }, 30);
 
     return () => clearInterval(interval);
   }, [startCounting]);
 
   return (
-    <div
+    <section
       ref={sectionRef}
-      className="pl-2 pr-2 sm:pl-4 sm:pr-4 mx-auto bg-[#192747] rounded-xl sm:rounded-3xl p-4 sm:p-8 text-white shadow-xl my-8"
+      className="relative overflow-hidden bg-[#0f172a] py-16 text-white w-full"
     >
-      <div className="text-center mb-8">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight tracking-wide">
-          Investing in <span className="text-blue-400">teamwork</span> pays off
-        </h2>
-        <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mt-2">
-          Experience the difference with our premium gaming and tech solutions
-        </p>
+      <style>
+        {`
+          @keyframes scrollUp {
+            0% { transform: translateY(0%); }
+            100% { transform: translateY(-50%); }
+          }
+          @keyframes scrollDown {
+            0% { transform: translateY(-50%); }
+            100% { transform: translateY(0%); }
+          }
+          .scroll-up-smooth {
+            animation: scrollUp 25s linear infinite;
+          }
+          .scroll-down-smooth {
+            animation: scrollDown 25s linear infinite;
+          }
+        `}
+      </style>
+
+      {/* Floating Logos */}
+      <div className="absolute inset-0 z-0 flex w-full justify-between px-2 sm:px-8 gap-2 pointer-events-none bg-[#0f172a] opacity-40 overflow-hidden">
+        {[...Array(4)].map((_, col) => (
+          <div
+            key={col}
+            className={`relative h-[200%] w-[25%] flex flex-col items-center ${
+              col % 2 === 0 ? 'scroll-up-smooth' : 'scroll-down-smooth'
+            }`}
+          >
+            {[...logos, ...logos].map((logo, idx) => (
+              <img
+                key={`${col}-${idx}`}
+                src={logo}
+                alt={`logo-${idx}`}
+                className="w-[200px] h-[60px] object-contain brightness-110 contrast-125 drop-shadow-md bg-white/10 rounded p-2 my-2"
+              />
+            ))}
+          </div>
+        ))}
       </div>
 
-      <div className="inline-block w-full p-8 rounded-xl border border-blue-500 bg-[#0f172a]/50 backdrop-blur-md">
-        <div className="flex flex-col sm:flex-row justify-center sm:space-x-8 space-y-6 sm:space-y-0 text-center items-center">
-          <div>
-            <div className="text-3xl sm:text-4xl font-bold text-blue-400">
-              {counts.customers >= 1000
-                ? `${(counts.customers / 1000).toFixed(0)}K+`
-                : counts.customers + '+'}
+      {/* Foreground Content */}
+      <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
+        <h2 className="text-4xl sm:text-5xl font-extrabold mb-4 leading-tight">
+          Investing in <span className="text-blue-400">teamwork</span> pays off
+        </h2>
+        <p className="text-slate-300 text-lg sm:text-xl mb-12 max-w-2xl mx-auto">
+          Experience the difference with our premium gaming and tech solutions
+        </p>
+
+        <div className="inline-block w-full p-8 rounded-xl border border-blue-500 bg-[#192747]/90 backdrop-blur-sm shadow-2xl">
+          <div className="flex flex-col sm:flex-row justify-center sm:space-x-8 space-y-6 sm:space-y-0 text-center items-center">
+            <div>
+              <div className="text-3xl sm:text-4xl font-bold text-blue-400">
+                {counts.customers >= 1000
+                  ? `${(counts.customers / 1000).toFixed(0)}K+`
+                  : counts.customers + '+'}
+              </div>
+              <div className="text-blue-200">Happy Customers</div>
             </div>
-            <div className="text-blue-200">Happy Customers</div>
-          </div>
-          <div>
-            <div className="text-3xl sm:text-4xl font-bold text-blue-400">
-              {counts.products}+
+            <div>
+              <div className="text-3xl sm:text-4xl font-bold text-blue-400">
+                {counts.products}+
+              </div>
+              <div className="text-blue-200">Products</div>
             </div>
-            <div className="text-blue-200">Products</div>
-          </div>
-          <div>
-            <div className="text-3xl sm:text-4xl font-bold text-blue-400">
-              {counts.satisfaction}%
+            <div>
+              <div className="text-3xl sm:text-4xl font-bold text-blue-400">
+                {counts.satisfaction}%
+              </div>
+              <div className="text-blue-200">Satisfaction Rate</div>
             </div>
-            <div className="text-blue-200">Satisfaction Rate</div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default TrustedStats;
+export default TrustedStatsSection;

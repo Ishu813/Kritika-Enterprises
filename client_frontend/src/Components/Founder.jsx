@@ -3,16 +3,6 @@ import { Linkedin, Instagram } from 'lucide-react';
 
 const founders = [
   {
-    name: 'Shubhangi Goel',
-    title: 'Co-founder, Lawyer',
-    image: 'https://randomuser.me/api/portraits/women/65.jpg',
-    quote: 'Innovation begins with courage and clarity.',
-    description:
-      'A driving force behind our vision. With a strong legal background, she ensures structure, integrity, and compliance at every step.',
-    linkedin: '..',
-    instagram: '..',
-  },
-  {
     name: 'Priyansh Goel',
     title: 'CEO & Co-founder, ex Scaler Academy',
     image: 'https://randomuser.me/api/portraits/men/78.jpg',
@@ -27,23 +17,30 @@ const founders = [
 const Founder = () => {
   return (
     <section className="bg-[#0f172a] text-white py-20 px-4 sm:px-6 lg:px-12">
-      <div className="max-w-7xl mx-auto text-center">
-        <div className="flex items-center justify-center gap-2 mb-2">
+      <div className="max-w-4xl mx-auto text-center">
+        <div className="flex items-center justify-center gap-2 mb-4">
           <span className="text-3xl">🗣</span>
-          <h2 className="text-4xl sm:text-5xl font-bold text-white">What Our Founders Say</h2>
+          <h2 className="text-4xl sm:text-5xl font-bold">What Our Founders Say</h2>
         </div>
         <p className="text-slate-300 text-lg sm:text-xl mb-12 max-w-2xl mx-auto">
           Meet the visionaries behind our success. Their passion and expertise drive our commitment to excellence.
         </p>
 
-        
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+        <div className="flex justify-center">
           {founders.map((founder, idx) => (
             <div
               key={idx}
-              className="bg-[#1e293b] rounded-2xl shadow-lg p-8 text-center transition-transform transform hover:-translate-y-2 hover:shadow-2xl duration-300"
+              className="group relative bg-[#1e293b] rounded-2xl p-8 text-center shadow-lg transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl border-2 border-transparent"
             >
+              {/* Glowing flash border layer */}
+              <span
+                className="absolute inset-0 rounded-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition duration-500"
+                style={{
+                  boxShadow: '0 0 12px 3px #3878d8',
+                  zIndex: -1,
+                }}
+              ></span>
+
               <img
                 src={founder.image}
                 alt={founder.name}
@@ -51,9 +48,7 @@ const Founder = () => {
               />
               <h3 className="text-xl font-bold">{founder.name}</h3>
               <p className="text-slate-300 font-medium mb-4">{founder.title}</p>
-              <blockquote className="italic text-slate-400 mb-4">
-                “{founder.quote}”
-              </blockquote>
+              <blockquote className="italic text-slate-400 mb-4">“{founder.quote}”</blockquote>
               <p className="text-slate-400 text-sm leading-relaxed mb-4">{founder.description}</p>
               <div className="flex justify-center gap-4 mt-4">
                 <a
