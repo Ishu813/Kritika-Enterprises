@@ -2,7 +2,7 @@ const Contact = () => {
   return (
     <>
       {/* Contact info */}
-      <footer className=" bg-[#192747]  rounded-lg pl-2 pr-4 sm:pl-8 sm:pr-8 ">
+      <footer className=" bg-[#192747]  rounded-lg pl-4 pr-4 sm:pl-8 sm:pr-8 ">
         <div className="max-w-7xl  text-white py-6 sm:py-8 mx-auto flex flex-col md:flex-row justify-between gap-6 sm:gap-8 px-2 sm:px-4">
           <div> 
             <h2 className="text-[#F33539] text-2xl font-bold">

@@ -27,8 +27,9 @@ const App = () => {
           <Route path="/developers" element={<Developers />} />
           <Route path="/expert-assistance" element={<ExpertAssistance />} />
         </Routes>
+        <Contact />
       </div>
-      <Contact />
+      
     </div>
   );
 };

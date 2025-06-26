@@ -42,21 +42,27 @@ const LoginPage = () => {
     <div
       style={{
         display: "flex",
+        flexWrap: "wrap",
         width: "100%",
         backgroundColor: "#f2f3ff",
         justifyContent: "center",
         alignItems: "center",
+        padding: "4vw",
       }}
     >
       <div
         style={{
           display: "flex",
+          flexDirection: "row",
+          flexWrap: "wrap",
           backgroundColor: "white",
           justifyContent: "space-evenly",
           alignItems: "center",
           boxShadow: "0 6px 16px rgba(135, 206, 235, 0.5)",
-          margin: "4rem",
-          padding: "4rem",
+          margin: "2vh 0",
+          padding: "2vh 2vw",
+          maxWidth: "90vw",
+          width: "100%",
         }}
       >
         <div
@@ -66,6 +72,10 @@ const LoginPage = () => {
             padding: "2rem",
             color: "grey",
             zIndex: "1",
+            maxWidth: "100%",
+            width: "100%",
+            flex: "1 1 300px",
+            boxSizing: "border-box",
           }}
         >
           <p
@@ -94,11 +104,12 @@ const LoginPage = () => {
               name="email"
               placeholder="you@example.com"
               style={{
-                width: "24rem",
+                width: "100%",
                 padding: "1rem",
                 border: "2px solid lightgrey",
                 borderRadius: "0.5rem",
                 marginTop: "4px",
+                boxSizing: "border-box",
               }}
               onChange={(e) => {
                 setEmail(e.target.value);
@@ -113,12 +124,13 @@ const LoginPage = () => {
               type="password"
               placeholder="Enter 6 characters or more"
               style={{
-                width: "24rem",
+                width: "100%",
                 padding: "1rem",
                 border: "2px solid lightgrey",
                 borderRadius: "0.5rem",
                 marginTop: "4px",
                 marginBottom: "1rem",
+                boxSizing: "border-box",
               }}
               onChange={(e) => {
                 setPassword(e.target.value);
@@ -134,7 +146,7 @@ const LoginPage = () => {
           </p>
           <button
             style={{
-              width: "24rem",
+              width: "100%",
               padding: "1rem",
               border: "none",
               backgroundColor: "darkblue",
@@ -175,7 +187,7 @@ const LoginPage = () => {
           <button
             style={{
               display: "flex",
-              width: "24rem",
+              width: "100%",
               padding: "1rem",
               border: "2px solid red",
               color: "red",
@@ -196,16 +208,23 @@ const LoginPage = () => {
           </button>
         </div>
         <div
+          className="login-image-container"
           style={{
             display: "flex",
             backgroundColor: "white",
             overflow: "hidden",
+            maxWidth: "100%",
+            width: "100%",
+            flex: "1 1 300px",
+            boxSizing: "border-box",
+            justifyContent: "center",
+            marginTop: "2vh",
           }}
         >
           <img
             src="https://connect.myesr.org/app/uploads/login.svg"
             alt="loginimage"
-            style={{ width: "40rem" }}
+            style={{ width: "100%", maxWidth: "40rem", height: "auto" }}
           ></img>
         </div>
       </div>
