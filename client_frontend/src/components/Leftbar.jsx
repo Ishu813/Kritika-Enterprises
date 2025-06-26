@@ -34,7 +34,7 @@ const Leftbar = () => {
   return (
     <div className="bg-[#0f172a]">
       <div
-        className="fixed top-20 left-0 h-[calc(100vh-4rem)] border-r-2 z-10 bg-[#0f172a] transition-all duration-300 group hover:w-40 w-12 sm:block"
+        className="fixed top-20 left-0 h-[calc(100vh-4rem)] shadow-md border-r-2 border-slate-700 z-10 bg-[#0f172a] transition-all duration-300 group hover:w-40 w-12 sm:block"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="space-y-4">
@@ -60,7 +60,7 @@ const Leftbar = () => {
               Products <FaChevronRight className="ml-auto" />
             </span>
             {activeMain === "products" && (
-              <div className="fixed top-20 left-40 w-32 h-screen bg-white border border-gray-200 rounded shadow-md z-[999]">
+              <div className="fixed top-20 left-40 w-32 h-screen bg-[#0f172a] border-r-2 border-slate-700 rounded shadow-md z-[999]">
                 {[
                   "Laptops",
                   "Desktops",
@@ -78,7 +78,7 @@ const Leftbar = () => {
                     to={`/products?category=${category
                       .toLowerCase()
                       .replace(/ /g, "-")}`}
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                    className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600"
                   >
                     {category}
                   </Link>
@@ -102,7 +102,7 @@ const Leftbar = () => {
               Solutions <FaChevronRight className="ml-auto" />
             </span>
             {activeMain === "solutions" && (
-              <div className="fixed top-20 left-40 w-32 h-screen bg-white border border-gray-200 rounded shadow-md z-[999] flex flex-col">
+              <div className="fixed top-20 left-40 w-32 h-screen bg-[#0f172a]  border-r-2 border-slate-700  rounded shadow-md z-[999] flex flex-col">
                 {["b2b", "b2c"].map((type) => (
                   <div
                     key={type}
@@ -112,13 +112,13 @@ const Leftbar = () => {
                   >
                     <div
                       className={`px-4 py-2 cursor-pointer flex justify-between ${
-                        activeSub === type ? "text-blue-600" : "text-gray-700"
+                        activeSub === type ? "text-blue-600" : "text-white"
                       } hover:bg-blue-50 hover:text-blue-600`}
                     >
                       {type.toUpperCase()} <FaChevronRight />
                     </div>
                     {activeSub === type && (
-                      <div className="fixed top-20 left-[17rem] w-32 h-screen bg-white border border-gray-200 rounded shadow-md z-[1000]">
+                      <div className="fixed top-20 left-[18rem] w-32 h-screen bg-[#0f172a] border-r-2 border-slate-700  rounded shadow-md z-[1000]">
                         {[
                           "Laptops",
                           "Desktops",
@@ -136,7 +136,7 @@ const Leftbar = () => {
                             to={`/products/${category
                               .toLowerCase()
                               .replace(/ /g, "-")}`}
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                            className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600"
                           >
                             {category}
                           </Link>
