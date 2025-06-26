@@ -9,6 +9,7 @@ import img5 from '../assets/store5.jpeg';
 import img6 from '../assets/store6.jpeg';
 import Founder from './Founder';
 import Testimonials from './Testimonials';
+import { Link } from 'react-router-dom';
 
 
 import { 
@@ -97,28 +98,42 @@ const HeroSection = () => {
       </div>
       {/*Card for feature display*/} 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {features.map((feature, index) => (
-          <Card
-            key={index}
-            className="group shadow-sm hover:shadow-md hover:-translate-y-2 bg-[#1e293b] transition-all duration-300"
-          >
-            <CardHeader className="text-center pb-4">
-              <div
-                className={`mx-auto p-4 rounded-full w-fit mb-4 transform transition-transform duration-300 ${feature.color} group-hover:scale-110`}
-              >
-                <feature.icon className="h-8 w-8 transition-transform duration-300 group-hover:scale-105" />
-              </div>
-              <CardTitle className="text-xl font-bold text-white ">
-                {feature.title}
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CardDescription className="text-center text-[#a1c2ef] leading-relaxed">
-                {feature.description}
-              </CardDescription>
-            </CardContent>
-          </Card>
-        ))}
+        {features.map((feature, index) => {
+          let linkTo = null;
+          if (feature.title === "B2B Solutions") linkTo = "/products/b2b";
+          else if (feature.title === "B2C Marketplace") linkTo = "/products/b2c";
+          else if (feature.title === "Expert Consultation") linkTo = "/expert-assistance";
+
+          const cardElement = (
+            <Card
+              key={index}
+              className="group shadow-sm hover:shadow-md hover:-translate-y-2 bg-[#1e293b] transition-all duration-300"
+            >
+              <CardHeader className="text-center pb-4">
+                <div
+                  className={`mx-auto p-4 rounded-full w-fit mb-4 transform transition-transform duration-300 ${feature.color} group-hover:scale-110`}
+                >
+                  <feature.icon className="h-8 w-8 transition-transform duration-300 group-hover:scale-105" />
+                </div>
+                <CardTitle className="text-xl font-bold text-white ">
+                  {feature.title}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-center text-[#a1c2ef] leading-relaxed">
+                  {feature.description}
+                </CardDescription>
+              </CardContent>
+            </Card>
+          );
+          return linkTo ? (
+            <Link to={linkTo} key={index} style={{ textDecoration: 'none' }}>
+              {cardElement}
+            </Link>
+          ) : (
+            cardElement
+          );
+        })}
       </div>
     </section>
 

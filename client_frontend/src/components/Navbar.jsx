@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
 import { FiShoppingCart } from "react-icons/fi";
@@ -10,6 +10,8 @@ const Navbar = () => {
   const auth = getAuth();
   const [currentUser, setCurrentUser] = useState();
   const [isLogoutDropdownOpen, setIsLogoutDropdownOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -50,6 +52,13 @@ const Navbar = () => {
             <input
               type="text"
               placeholder="Search..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && searchTerm.trim() !== "") {
+                  navigate(`/products/${searchTerm}`);
+                }
+              }}
               className="w-full max-w-md px-4 py-2 rounded-md bg-slate-700 border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
