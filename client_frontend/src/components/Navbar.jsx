@@ -89,10 +89,11 @@ const Navbar = () => {
                   // to="/profile"
                   onClick={() => setIsLogoutDropdownOpen(!isLogoutDropdownOpen)}
                 >
-                  <img
+                  {/* <img
                     alt="user"
                     className="w-9 h-9 rounded-full object-cover border-2 border-blue-400"
-                  />
+                  /> */}
+                  <i style={{ fontSize: "1rem" }} class="fa-solid fa-user"></i>
                 </NavLink>
               </>
             )}

@@ -2,7 +2,12 @@ import React from "react";
 
 const ProductCard = ({ product }) => {
   return (
-    <div className="w-80 bg-[#192747] rounded-xl overflow-hidden shadow-lg m-2  border-2 border-slate-700 hover:opacity-80 transition-opacity">
+    <div
+      className="w-80 bg-[#192747] rounded-xl overflow-hidden shadow-lg m-2  border-2 border-slate-700 hover:opacity-80 transition-opacity"
+      onClick={() => {
+        window.location.href = `/products/${product.id}`;
+      }}
+    >
       <div className="w-80 relative">
         <img className="w-80 max-h-64" src={product.imageUrl} />
         <div className="flex absolute top-4 right-4 p-2 rounded-full bg-black/20 backdrop-blur-sm justify-center items-center hover:opacity-50 transition-opacity">
