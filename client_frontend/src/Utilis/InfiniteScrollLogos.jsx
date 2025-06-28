@@ -3,7 +3,7 @@ import Amd from "../assets/amd.png";
 import Asus from "../assets/Asus.png";
 import Crucial from "../assets/crucial.png";
 import Dahua from "../assets/dahua.png";
-import Dell from "../assets/dell.png";
+import Dell from "../assets/Dell.png";
 import HP from "../assets/hp.png";
 import Intel from "../assets/intel.png";
 import Lenovo from "../assets/lenovo.png";
@@ -17,7 +17,26 @@ import Toshiba from "../assets/toshiba.png";
 import Viewsonic from "../assets/viewsonic.png";
 import WD from "../assets/wd.png";
 
-const allLogos = [Acer, Amd, Asus, Crucial, Dahua, Dell, HP, Intel, Lenovo, LG, Msi, Samsung, Seagate, Sony, Thermaltake, Toshiba, Viewsonic, WD];
+const allLogos = [
+  Acer,
+  Amd,
+  Asus,
+  Crucial,
+  Dahua,
+  Dell,
+  HP,
+  Intel,
+  Lenovo,
+  LG,
+  Msi,
+  Samsung,
+  Seagate,
+  Sony,
+  Thermaltake,
+  Toshiba,
+  Viewsonic,
+  WD,
+];
 const midpoint = Math.ceil(allLogos.length / 2);
 const leftLogos = allLogos.slice(0, midpoint);
 const rightLogos = allLogos.slice(midpoint);
