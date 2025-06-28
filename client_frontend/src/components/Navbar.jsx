@@ -138,7 +138,7 @@ const Navbar = () => {
           {/* Hamburger - Mobile only */}
           <div
             className="md:hidden text-3xl cursor-pointer"
-            onClick={() => setisMenuOpen(!isMenuOpen)}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <IoMdClose /> : <GiHamburgerMenu />}
           </div>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   FaHome,
   FaBox,
@@ -11,6 +11,14 @@ import { HiOutlineLightBulb } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
 const Leftbar = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const [activeMain, setActiveMain] = useState(null);
   const [activeSub, setActiveSub] = useState(null);
 
@@ -22,14 +30,6 @@ const Leftbar = () => {
       setActiveMain(menu);
     }
   };
-
-  // const handleSubmenuClick = (submenu) => {
-  //   if (activeSub === submenu) {
-  //     setActiveSub(null);
-  //   } else {
-  //     setActiveSub(submenu);
-  //   }
-  // };
 
   return (
     <div className="bg-[#0f172a]">
@@ -49,10 +49,10 @@ const Leftbar = () => {
           </Link>
 
           {/* Products Dropdown */}
-          <div
+          <Link
+            to="/products"
             onMouseEnter={() => setActiveMain("products")}
             onMouseLeave={() => setActiveMain(null)}
-            onTouchStart={() => handleMenuClick("products")}
             className="relative flex items-center gap-6 px-1 group-hover:px-3 py-4 text-white hover:bg-blue-50 hover:text-blue-600 rounded-md cursor-pointer transition-colors justify-center group-hover:justify-start"
           >
             <FaBox className="text-lg hover:text-blue-600" />
@@ -85,7 +85,7 @@ const Leftbar = () => {
                 ))}
               </div>
             )}
-          </div>
+          </Link>
 
           {/* Solutions Dropdown */}
           <div
@@ -103,48 +103,45 @@ const Leftbar = () => {
             </span>
             {activeMain === "solutions" && (
               <div className="fixed top-20 left-40 w-32 h-screen bg-[#0f172a]  border-r-2 border-slate-700  rounded shadow-md z-[999] flex flex-col">
-                {["b2b", "b2c"].map((type) => (
-                  <div
-                    key={type}
-                    onMouseEnter={() => setActiveSub(type)}
-                    onMouseLeave={() => setActiveSub(null)}
-                    className="relative group"
-                  >
+                {["b2b", "b2c"].map((type) => {
+                  const categories =
+                    type === "b2b"
+                      ? ["Laptops", "Desktops", "Servers", "Softwares"]
+                      : ["Monitors", "Printers", "Input Devices", "Digital Boards"];
+
+                  return (
                     <div
-                      className={`px-4 py-2 cursor-pointer flex justify-between ${
-                        activeSub === type ? "text-blue-600" : "text-white"
-                      } hover:bg-blue-50 hover:text-blue-600`}
+                      key={type}
+                      onMouseEnter={() => !isMobile && setActiveSub(type)}
+                      onMouseLeave={() => !isMobile && setActiveSub(null)}
+                      onClick={() => isMobile && setActiveSub(activeSub === type ? null : type)}
+                      className="relative group"
                     >
-                      {type.toUpperCase()} <FaChevronRight />
-                    </div>
-                    {activeSub === type && (
-                      <div className="fixed top-20 left-[18rem] w-32 h-screen bg-[#0f172a] border-r-2 border-slate-700 rounded shadow-md z-[1000] transition-all duration-75">
-                        {[
-                          "Laptops",
-                          "Desktops",
-                          "Gaming Components",
-                          "Printers",
-                          "Monitors",
-                          "Digital Boards",
-                          "Servers",
-                          "Softwares",
-                          "Storages",
-                          "Input Devices",
-                        ].map((category) => (
-                          <Link
-                            key={category}
-                            to={`/products/${category
-                              .toLowerCase()
-                              .replace(/ /g, "-")}`}
-                            className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600"
-                          >
-                            {category}
-                          </Link>
-                        ))}
+                      <div
+                        className={`px-4 py-2 cursor-pointer flex justify-between ${
+                          activeSub === type ? "text-blue-600" : "text-white"
+                        } hover:bg-blue-50 hover:text-blue-600`}
+                      >
+                        {type.toUpperCase()} <FaChevronRight />
                       </div>
-                    )}
-                  </div>
-                ))}
+                      {activeSub === type && (!isMobile || (isMobile && activeMain === "solutions")) && (
+                        <div className="fixed top-20 left-[18rem] w-32 h-screen bg-[#0f172a] border-r-2 border-slate-700 rounded shadow-md z-[1000] transition-all duration-75">
+                          {categories.map((category) => (
+                            <Link
+                              key={category}
+                              to={`/products/${category
+                                .toLowerCase()
+                                .replace(/ /g, "-")}`}
+                              className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600"
+                            >
+                              {category}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             )}
           </div>

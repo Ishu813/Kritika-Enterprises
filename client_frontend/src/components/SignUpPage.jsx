@@ -56,226 +56,106 @@ const SignUpPage = () => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        width: "100%",
-        backgroundColor: "#f2f3ff",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          backgroundColor: "white",
-          justifyContent: "space-evenly",
-          alignItems: "center",
-          boxShadow: "0 6px 16px rgba(135, 206, 235, 0.5)",
-          margin: "4rem",
-          padding: "4rem",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            width: "36rem",
-            backgroundColor: "white",
-          }}
-        >
+    <div className="w-full flex items-center justify-center min-h-screen bg-[#f2f3ff] px-2 sm:px-4">
+      <div className="flex flex-col lg:flex-row bg-white shadow-[0_6px_16px_rgba(135,206,235,0.5)] m-2 sm:m-4 p-2 sm:p-4 rounded-lg w-full max-w-7xl">
+        {/* Image Section */}
+        <div className="hidden lg:flex items-center justify-center w-full max-w-lg bg-white">
           <img
             src="https://img.freepik.com/premium-vector/illustration-vector-graphic-cartoon-character-bill_516790-2301.jpg"
             alt="signupimage"
-            style={{ width: "32rem" }}
-          ></img>
+            className="object-contain w-full h-auto"
+          />
         </div>
+        {/* Form Section */}
         <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            backgroundColor: "white",
-            boxShadow: "0 6px 16px rgba(0, 0, 0, 0.2)",
-            padding: "2rem",
-            paddingLeft: "4rem",
-            paddingRight: "4rem",
-            color: "grey",
-          }}
+          className="flex flex-col justify-center items-center bg-white shadow-md p-4 sm:p-8 md:p-12 w-full"
+          style={{ color: "grey" }}
         >
-          <p
-            style={{
-              color: "darkblue",
-              fontSize: "2rem",
-              fontWeight: "bold",
-              marginBottom: "4px",
-            }}
-          >
-            SignUp
-          </p>
-          <p>
+          <p className="text-blue-900 text-2xl font-bold mb-2">SignUp</p>
+          <p className="text-center mb-4">
             Already have an account?{" "}
             <a
               href="/login"
-              style={{ color: "darkblue", textDecoration: "underline" }}
+              className="text-blue-700 underline"
             >
               Login
             </a>
           </p>
-          <div
-            style={{
-              marginTop: "1rem",
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            <i style={{ fontSize: "1.5rem" }} className="fa-solid fa-user"></i>
+          <div className="flex flex-col w-full max-w-md mb-4">
+            <label className="text-sm text-gray-600 flex items-center gap-2 mb-1">
+              <i className="fa-solid fa-user text-blue-700"></i> Full Name
+            </label>
             <input
               name="fullname"
               placeholder="Jane Doe"
-              style={{
-                width: "24rem",
-                padding: "1rem",
-                border: "2px solid lightgrey",
-                borderRadius: "0.5rem",
-                margin: "1rem",
-              }}
+              className="p-3 border-2 border-gray-300 rounded-lg w-full"
               onChange={(e) => setName(e.target.value)}
             />
           </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            <i
-              style={{ fontSize: "1.5rem" }}
-              className="fa-solid fa-envelope"
-            ></i>
+          <div className="flex flex-col w-full max-w-md mb-4">
+            <label className="text-sm text-gray-600 flex items-center gap-2 mb-1">
+              <i className="fa-solid fa-envelope text-blue-700"></i> Email
+            </label>
             <input
               name="email"
               placeholder="you@example.com"
-              style={{
-                width: "24rem",
-                padding: "1rem",
-                border: "2px solid lightgrey",
-                borderRadius: "0.5rem",
-                margin: "1rem",
-              }}
+              className="p-3 border-2 border-gray-300 rounded-lg w-full"
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            <i style={{ fontSize: "1.5rem" }} className="fa-solid fa-lock"></i>
+          <div className="flex flex-col w-full max-w-md mb-4">
+            <label className="text-sm text-gray-600 flex items-center gap-2 mb-1">
+              <i className="fa-solid fa-lock text-blue-700"></i> Password
+            </label>
             <input
               name="password"
               type="password"
               placeholder="Password"
-              style={{
-                width: "24rem",
-                padding: "1rem",
-                border: "2px solid lightgrey",
-                borderRadius: "0.5rem",
-                margin: "1rem",
-              }}
+              className="p-3 border-2 border-gray-300 rounded-lg w-full"
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            <i style={{ fontSize: "1.5rem" }} className="fa-solid fa-key"></i>
+          <div className="flex flex-col w-full max-w-md mb-4">
+            <label className="text-sm text-gray-600 flex items-center gap-2 mb-1">
+              <i className="fa-solid fa-key text-blue-700"></i> Confirm Password
+            </label>
             <input
               name="confirmpassword"
               type="password"
               placeholder="Confirm Password"
-              style={{
-                width: "24rem",
-                padding: "1rem",
-                border: "2px solid lightgrey",
-                borderRadius: "0.5rem",
-                margin: "1rem",
-              }}
+              className="p-3 border-2 border-gray-300 rounded-lg w-full"
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </div>
-          <label
-            style={{ margin: "0.5rem", width: "100%", marginLeft: "2.5rem" }}
-          >
-            <input type="checkbox" /> Remember Password
+          <label className="flex items-center gap-2 mb-4">
+            <input type="checkbox" className="form-checkbox" />{" "}
+            <span className="text-sm text-gray-600">Remember Password</span>
           </label>
-          {error && <p style={{ color: "red" }}>{error}</p>}
-          {successMsg && <p style={{ color: "green" }}>{successMsg}</p>}
+          {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+          {successMsg && (
+            <p className="text-green-500 text-sm mb-4">{successMsg}</p>
+          )}
           <button
-            style={{
-              width: "26rem",
-              padding: "1rem",
-              border: "none",
-              backgroundColor: "darkblue",
-              color: "white",
-              fontWeight: "bold",
-              borderRadius: "0.5rem",
-              marginTop: "1rem",
-              marginBottom: "1rem",
-            }}
+            className="w-full max-w-md bg-blue-900 text-white font-bold py-3 rounded-lg shadow-md hover:bg-blue-800 transition-all duration-300 ease-in-out mb-4"
             onClick={handleSignup}
           >
             REGISTER
           </button>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              width: "100%",
-              justifyContent: "center",
-            }}
-          >
-            <div
-              style={{
-                width: "30%",
-                height: "2px",
-                margin: "1rem",
-                backgroundColor: "lightgrey",
-              }}
-            ></div>
-            <p>or login with</p>
-            <div
-              style={{
-                width: "30%",
-                height: "2px",
-                margin: "1rem",
-                backgroundColor: "lightgrey",
-              }}
-            ></div>
+          <div className="flex items-center w-full mb-4">
+            <div className="flex-1 h-px bg-gray-300"></div>
+            <span className="text-center text-gray-500 px-4">
+              or login with
+            </span>
+            <div className="flex-1 h-px bg-gray-300"></div>
           </div>
           <button
-            style={{
-              display: "flex",
-              width: "26rem",
-              padding: "1rem",
-              border: "2px solid red",
-              color: "red",
-              fontWeight: "bold",
-              borderRadius: "0.5rem",
-              marginTop: "1rem",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "4px",
-            }}
+            className="w-full max-w-md bg-red-500 text-white font-bold py-3 rounded-lg shadow-md hover:bg-red-400 transition-all duration-300 ease-in-out flex items-center justify-center gap-2"
             onClick={handleGoogleLogin}
           >
             <img
               src="https://img.icons8.com/color/512/google-logo.png"
-              style={{ width: "1.5rem" }}
+              className="w-5 h-5"
+              alt="Google Logo"
             />
             Google
           </button>

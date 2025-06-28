@@ -34,13 +34,9 @@ const SelectionBox = ({ title, options, products, setFilteredProducts }) => {
       {options.map((option) => (
         <label
           key={option}
-          className="inline-block cursor-pointer border-2 border-lightgrey p-2 rounded-full m-1 text-gray-500 hover:bg-lightgrey"
-          onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = "lightgrey";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = "white";
-          }}
+          className={`inline-block cursor-pointer border-2 border-lightgrey p-2 rounded-full m-1  text-black hover:bg-lightgrey ${
+            selectedOptions.includes(option) ? "bg-gray-400 " : "bg-white"
+          }`}
         >
           <span
             style={{
