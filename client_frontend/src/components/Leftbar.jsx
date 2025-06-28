@@ -175,7 +175,7 @@ const Leftbar = () => {
           >
             <FaUsers className="text-lg hover:text-blue-600" />
             <span className="text-sm font-bold group-hover:flex hidden">
-              Our Developers
+              Our Team
             </span>
           </Link>
         </div>
