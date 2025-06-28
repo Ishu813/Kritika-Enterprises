@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PriceRangeBox from "../components/PriceRangeBox";
 import ChoicesBox from "../components/ChoicesBox";
-import SelectionBox from "../Components/SelectionBox";
+import SelectionBox from "../components/SelectionBox";
 import ProductCard from "../components/ProductsCard";
 import { db } from "../../firebase";
 import { collection, getDocs, doc, deleteDoc } from "firebase/firestore";
@@ -140,7 +140,9 @@ const ProductsPage = () => {
             showFilters ? "block" : "hidden"
           } md:block`}
         >
-          <p style={{ fontSize: "1.5rem" }} className="bg-[#0f172a]">Filters</p>
+          <p style={{ fontSize: "1.5rem" }} className="bg-[#0f172a]">
+            Filters
+          </p>
           <SelectionBox
             title={"Brands"}
             options={companyChoices}
