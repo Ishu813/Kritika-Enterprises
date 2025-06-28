@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Leftbar from "./components/Leftbar";
 import Herosection from "./components/HeroSection";
 import ProductsPage from "./pages/ProductsPage";
+import ProductDetailsPage from "./pages/ProductDetailsPage";
 import Services from "./components/Services";
 import Contact from "./components/Contact";
 import SignUpPage from "./components/SignUpPage";
@@ -20,6 +21,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Herosection />} />
           <Route path="/products" element={<ProductsPage />} />
+          <Route path="/products/:id" element={<ProductDetailsPage />} />
           <Route path="/services" element={<Services />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/login" element={<LoginPage />} />
@@ -29,7 +31,6 @@ const App = () => {
         </Routes>
         <Contact />
       </div>
-      
     </div>
   );
 };

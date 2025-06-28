@@ -90,7 +90,6 @@ const Navbar = () => {
                   onClick={() => setIsLogoutDropdownOpen(!isLogoutDropdownOpen)}
                 >
                   <img
-                    src={""}
                     alt="user"
                     className="w-9 h-9 rounded-full object-cover border-2 border-blue-400"
                   />
