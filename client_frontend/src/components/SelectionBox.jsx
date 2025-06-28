@@ -26,40 +26,15 @@ const SelectionBox = ({ title, options, products, setFilteredProducts }) => {
   }, [selectedOptions]);
 
   return (
-    <div
-      style={{
-        border: "2px solid lightgrey",
-        borderRadius: "1rem",
-        padding: "1rem",
-        marginTop: "1rem",
-        backgroundColor: "white",
-        boxShadow: "0px 0px 12px rgba(0, 0, 0, 0.2)",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          paddingBottom: "1rem",
-        }}
-      >
+    <div className="border-2 border-lightgrey rounded-xl p-4 mt-4 bg-[#192747] shadow-md shadow-black/20">
+      <div className="flex justify-between pb-4">
         <span>{title}</span>
         <span style={{ rotate: "180deg" }}>^</span>
       </div>
       {options.map((option) => (
         <label
           key={option}
-          style={{
-            display: "inline-block",
-            cursor: "pointer",
-            border: "2px solid lightgrey",
-            padding: "0.5rem",
-            borderRadius: "2rem",
-            margin: "4px",
-            color: "grey",
-            alignContent: "center",
-            justifyItems: "center",
-          }}
+          className="inline-block cursor-pointer border-2 border-lightgrey p-2 rounded-full m-1 text-gray-500 hover:bg-lightgrey"
           onMouseEnter={(e) => {
             e.currentTarget.style.backgroundColor = "lightgrey";
           }}

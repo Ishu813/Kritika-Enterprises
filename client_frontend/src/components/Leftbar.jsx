@@ -118,7 +118,7 @@ const Leftbar = () => {
                       {type.toUpperCase()} <FaChevronRight />
                     </div>
                     {activeSub === type && (
-                      <div className="fixed top-20 left-[18rem] w-32 h-screen bg-[#0f172a] border-r-2 border-slate-700  rounded shadow-md z-[1000]">
+                      <div className="fixed top-20 left-[18rem] w-32 h-screen bg-[#0f172a] border-r-2 border-slate-700 rounded shadow-md z-[1000] transition-all duration-75">
                         {[
                           "Laptops",
                           "Desktops",

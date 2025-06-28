@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import "./PriceRange.css";
+import { useEffect, useState } from "react";
 
 const PriceRangeBox = ({ products, setFilteredProducts }) => {
   const min = 0;
@@ -33,28 +32,24 @@ const PriceRangeBox = ({ products, setFilteredProducts }) => {
   }, [minVal, maxVal]);
 
   return (
-    <div
-      style={{
-        border: "2px solid lightgrey",
-        borderRadius: "1rem",
-        padding: "1rem",
-        marginTop: "1rem",
-        backgroundColor: "white",
-        boxShadow: "0px 0px 12px rgba(0, 0, 0, 0.2)",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          paddingBottom: "1rem 0rem 1rem 0.5rem",
-        }}
-      >
-        <span>Price Range</span>
+    <div className="border-2 border-gray-300 rounded-xl p-4 mt-4 bg-[#192747] shadow-md">
+      <div className="flex justify-between pb-4 px-2">
+        <span className="font-semibold text-white">Price Range</span>
       </div>
 
-      <div className="price-range-wrapper">
-        <div className="slider">
+      <div className="w-full">
+        <div className="relative h-6">
+          {/* Track */}
+          <div className="absolute top-1/2 -translate-y-1/2 w-full h-[5px] bg-gray-300 rounded z-[1]" />
+          {/* Range */}
+          <div
+            className="absolute top-1/2 -translate-y-1/2 h-[5px] bg-blue-600 rounded z-[2]"
+            style={{
+              left: `${(minVal / max) * 100}%`,
+              right: `${100 - (maxVal / max) * 100}%`,
+            }}
+          />
+          {/* Min Thumb */}
           <input
             type="range"
             min={min}
@@ -62,8 +57,9 @@ const PriceRangeBox = ({ products, setFilteredProducts }) => {
             step={step}
             value={minVal}
             onChange={handleMinChange}
-            className="thumb thumb--left"
+            className="absolute top-1/2 -translate-y-1/2 w-full appearance-none pointer-events-none z-[3] h-0"
           />
+          {/* Max Thumb */}
           <input
             type="range"
             min={min}
@@ -71,31 +67,24 @@ const PriceRangeBox = ({ products, setFilteredProducts }) => {
             step={step}
             value={maxVal}
             onChange={handleMaxChange}
-            className="thumb thumb--right"
-          />
-          <div className="slider-track" />
-          <div
-            className="slider-range"
-            style={{
-              left: `${(minVal / max) * 100}%`,
-              right: `${100 - (maxVal / max) * 100}%`,
-            }}
+            className="absolute top-1/2 -translate-y-1/2 w-full appearance-none pointer-events-none z-[3] h-0"
           />
         </div>
-        <div className="price-values" style={{ color: "grey" }}>
+
+        <div className="mt-4 font-semibold flex justify-between text-gray-600">
           <input
             type="number"
-            style={{ width: "5rem", textAlign: "center" }}
+            className="w-20 text-center border border-gray-300 bg-[#192747] text-white rounded-md"
             value={minVal}
-            onChange={(e) => handleMinChange(e)}
-          ></input>
-          <span>-</span>
+            onChange={handleMinChange}
+          />
+          <span className="text-white">-</span>
           <input
             type="number"
-            style={{ width: "5rem", textAlign: "center" }}
+            className="w-20 text-center border border-gray-300 bg-[#192747] text-white rounded-md"
             value={maxVal}
-            onChange={(e) => handleMaxChange(e)}
-          ></input>
+            onChange={handleMaxChange}
+          />
         </div>
       </div>
     </div>

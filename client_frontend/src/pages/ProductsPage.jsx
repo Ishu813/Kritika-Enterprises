@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
-import PriceRangeBox from "../Components/PriceRangeBox";
-import ChoicesBox from "../Components/ChoicesBox";
+import PriceRangeBox from "../components/PriceRangeBox";
+import ChoicesBox from "../components/ChoicesBox";
 import SelectionBox from "../Components/SelectionBox";
-import ProductCard from "../Components/ProductsCard";
+import ProductCard from "../components/ProductsCard";
 import { db } from "../../firebase";
 import { collection, getDocs, doc, deleteDoc } from "firebase/firestore";
 import { useSearchParams } from "react-router-dom";
 
 const ProductsPage = () => {
+  const [showFilters, setShowFilters] = useState(false);
   const companyChoices = [
     "Acer",
     "Amd",
@@ -115,40 +116,31 @@ const ProductsPage = () => {
   ]);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        height: "100vh",
-      }}
-    >
+    <div className="flex flex-col h-screen text-white ">
       {/* Header */}
-      <div style={{ padding: "1rem", backgroundColor: "#f2f3ff" }}>
-        <p style={{ fontSize: "2rem", fontWeight: "bold" }}>All Products</p>
+      <div className="p-4 bg-[#0f172a] text-white ">
+        <p className="text-2xl font-bold">All Products</p>
         <hr />
       </div>
 
+      <div className="md:hidden p-4 bg-[#0f172a]">
+        <button
+          className="bg-blue-600 text-white px-4 py-2 rounded"
+          onClick={() => setShowFilters(!showFilters)}
+        >
+          {showFilters ? "Hide Filters" : "Show Filters"}
+        </button>
+      </div>
+
       {/* Body */}
-      <div
-        style={{
-          display: "flex",
-          flex: 1,
-          overflow: "hidden",
-          backgroundColor: "#f2f3ff",
-        }}
-      >
+      <div className="flex flex-1 overflow-hidden bg-[#0f172a] flex-col md:flex-row">
         {/* Filter Section */}
         <div
-          style={{
-            width: "24%",
-            padding: "0rem 1rem 1rem 1rem",
-            borderRight: "1px solid lightgray",
-            overflowY: "auto",
-            scrollbarWidth: "none",
-            msOverflowStyle: "none",
-          }}
+          className={`md:w-1/4 w-full p-4 border-r border-gray-300 overflow-y-auto ${
+            showFilters ? "block" : "hidden"
+          } md:block`}
         >
-          <p style={{ fontSize: "1.5rem" }}>Filters</p>
+          <p style={{ fontSize: "1.5rem" }} className="bg-[#0f172a]">Filters</p>
           <SelectionBox
             title={"Brands"}
             options={companyChoices}
@@ -174,8 +166,8 @@ const ProductsPage = () => {
         </div>
 
         {/* Products Section */}
-        <div style={{ width: "80%", overflowY: "auto", padding: "1rem" }}>
-          <div style={{ display: "flex", flexWrap: "wrap" }}>
+        <div className="md:w-3/4 w-full overflow-y-auto p-4 bg-[#0f172a]">
+          <div className="flex flex-wrap gap-4 bg-[#0f172a]">
             {filteredProducts.map((product, idx) => (
               <ProductCard key={idx} product={product} />
             ))}
