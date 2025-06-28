@@ -25,7 +25,6 @@ const ProductDetailsPage = () => {
   }, []);
 
   useEffect(() => {
-    console.log(products);
     const item = products.filter((product) => product.id == id);
     setProduct(item[0]);
   }, [products]);
@@ -68,9 +67,9 @@ const ProductDetailsPage = () => {
           {product.id}
         </h1>
         <div style={{ margin: "1rem 0" }}>
-          <span style={{ color: "#f8fafc" }}>⭐️ 4.9 </span>
+          {/* <span style={{ color: "#f8fafc" }}>⭐️ 4.9 </span>
           <span style={{ color: "#94a3b8" }}>(1247 reviews)</span>
-          &nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp; */}
           {product.stock > 0 ? (
             <span style={{ color: "#10b981", fontWeight: "bold" }}>
               In Stock

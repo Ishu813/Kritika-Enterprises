@@ -23,8 +23,8 @@ const KeyFeatures = ({ product }) => {
           marginTop: "1rem",
         }}
       >
-        {product.key_features.map((feature) => (
-          <p style={{ width: "18rem", padding: "0.5rem" }}>
+        {product.key_features.map((feature, idx) => (
+          <p key={idx} style={{ width: "18rem", padding: "0.5rem" }}>
             <span style={{ color: "green", fontSize: "1.2rem" }}>&#10003;</span>
             &nbsp;&nbsp; {feature}
           </p>
