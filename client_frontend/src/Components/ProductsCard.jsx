@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useCart } from "./CartContext";
 
 const ProductCard = ({ product }) => {
   const [opacity, setOpacity] = useState("1");
@@ -6,6 +7,7 @@ const ProductCard = ({ product }) => {
   const [opaque1, setOpaque1] = useState("1");
   const [opaque2, setOpaque2] = useState("1");
   const [opacitycart, setOpacitycart] = useState("1");
+  const { addToCart } = useCart();
 
   return (
     <div
@@ -187,6 +189,7 @@ const ProductCard = ({ product }) => {
           }}
           onMouseEnter={() => setOpacitybtn("0.8")}
           onMouseLeave={() => setOpacitybtn("1")}
+          onClick={() => addToCart(product)}
         >
           Add to cart
         </button>

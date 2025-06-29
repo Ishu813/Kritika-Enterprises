@@ -62,7 +62,7 @@ const Leftbar = () => {
             {activeMain === "products" && (
               <div className="fixed top-20 left-40 w-32 h-screen bg-[#0f172a] border border-gray-200 rounded shadow-md z-[999]">
                 {/* Add actual product links here */}
-                <Link to="/products/laptops" className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600">Laptops</Link>
+                <Link to="/products/laptop" className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600">Laptops</Link>
                 {/* Add more as needed */}
               </div>
             )}

@@ -1,5 +1,18 @@
 {
   "devDependencies": {
     "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "ngrok": "^5.0.0-beta.2"
+  },
+  "name": "kritika-enterprises-root",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "client_frontend",
+    "backend/hardware-chatbot"
+  ],
+  "scripts": {
+    "build": "cd client_frontend && npm install && npm run build"
   }
 }

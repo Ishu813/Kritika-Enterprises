@@ -3,9 +3,12 @@ import { NavLink } from 'react-router-dom';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoMdClose } from 'react-icons/io';
 import { FiShoppingCart } from 'react-icons/fi';
+import { useCart } from './CartContext';
 
 const Navbar = ({ isAuthenticated, user }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { cartItems } = useCart();
+  const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
     <>
@@ -26,6 +29,14 @@ const Navbar = ({ isAuthenticated, user }) => {
           </div>
         {/* Right part */}
           <div className="hidden md:flex items-center gap-6">
+            <NavLink to="/cart" className="relative text-white hover:text-blue-400">
+              <FiShoppingCart size={22} />
+              {cartCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs px-1.5 py-0.5">
+                  {cartCount}
+                </span>
+              )}
+            </NavLink>
             {!isAuthenticated ? (
               <>
                 <NavLink to="/login" className="text-sm font-medium hover:underline">
@@ -37,9 +48,6 @@ const Navbar = ({ isAuthenticated, user }) => {
               </>
             ) : (
               <>
-                <NavLink to="/cart" className="text-white hover:text-blue-400">
-                  <FiShoppingCart size={22} />
-                </NavLink>
                 <NavLink to="/profile">
                   <img
                     src={''}
@@ -61,6 +69,14 @@ const Navbar = ({ isAuthenticated, user }) => {
      
       {isMenuOpen && (
         <div className="md:hidden absolute top-20 left-0 w-full bg-[#0f172a] z-50 border-t border-slate-700 text-white text-center py-4">
+          <NavLink to="/cart" onClick={() => setIsMenuOpen(false)} className="block py-2 hover:text-blue-400 relative">
+            Cart
+            {cartCount > 0 && (
+              <span className="absolute -top-2 -right-6 bg-red-500 text-white rounded-full text-xs px-1.5 py-0.5">
+                {cartCount}
+              </span>
+            )}
+          </NavLink>
           {!isAuthenticated ? (
             <>
               <NavLink to="/login" onClick={() => setIsMenuOpen(false)} className="block py-2 hover:text-blue-400">Login</NavLink>
@@ -68,7 +84,6 @@ const Navbar = ({ isAuthenticated, user }) => {
             </>
           ) : (
             <>
-              <NavLink to="/cart" onClick={() => setIsMenuOpen(false)} className="block py-2 hover:text-blue-400">Cart</NavLink>
               <NavLink to="/profile" onClick={() => setIsMenuOpen(false)} className="block py-2 hover:text-blue-400">Profile</NavLink>
             </>
           )}

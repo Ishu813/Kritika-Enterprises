@@ -3,7 +3,7 @@ import PriceRangeBox from "../Components/PriceRangeBox";
 import ChoicesBox from "../Components/ChoicesBox";
 import SelectionBox from "../Components/SelectionBox";
 import ProductCard from "../Components/ProductsCard";
-import { db } from "../../firebase";
+import { db } from "../firebase";
 import { collection, getDocs, doc, deleteDoc } from "firebase/firestore";
 
 const ProductsPage = () => {

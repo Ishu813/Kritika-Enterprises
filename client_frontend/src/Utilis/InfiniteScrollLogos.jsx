@@ -3,7 +3,7 @@ import Amd from "../assets/amd.png";
 import Asus from "../assets/Asus.png";
 import Crucial from "../assets/crucial.png";
 import Dahua from "../assets/dahua.png";
-import Dell from "../assets/dell.png";
+import Dell from "../assets/Dell.png";
 import HP from "../assets/hp.png";
 import Intel from "../assets/intel.png";
 import Lenovo from "../assets/lenovo.png";
