@@ -355,15 +355,15 @@ const Leftbar = () => {
               Services
             </span>
           </Link>
-          <Link
-            to="/advisory"
-            className="flex items-center gap-6 px-1 group-hover:px-3 py-4 text-white hover:bg-blue-50 hover:text-blue-600 rounded-md transition-colors justify-center group-hover:justify-start"
-          >
-            <FaHandsHelping className="text-lg  hover:text-blue-600" />
-            <span className="text-sm font-bold group-hover:flex hidden">
-              Expert Assistance
-            </span>
-          </Link>
+         <Link
+  to="/expert-assistance"
+  className="flex items-center gap-6 px-1 group-hover:px-3 py-4 text-white hover:bg-blue-50 hover:text-blue-600 rounded-md transition-colors justify-center group-hover:justify-start"
+>
+  <FaHandsHelping className="text-lg hover:text-blue-600" />
+  <span className="text-sm font-bold group-hover:flex hidden">
+    Expert Assistance
+  </span>
+</Link>
           <Link
             to="/developers"
             className="flex items-center gap-6 px-1 group-hover:px-3 py-4 text-white hover:bg-blue-50 hover:text-blue-600 rounded-md cursor-pointer transition-colors justify-center group-hover:justify-start"
