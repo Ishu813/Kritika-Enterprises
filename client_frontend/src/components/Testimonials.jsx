@@ -19,18 +19,29 @@ const TrustedStatsSection = () => {
   });
 
   const sectionRef = useRef(null);
+  const audioRef = useRef(null);
   const [startCounting, setStartCounting] = useState(false);
+  const hasStartedCountingRef = useRef(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !hasStartedCountingRef.current) {
           setStartCounting(true);
-          observer.disconnect();
+          hasStartedCountingRef.current = true;
+
+          if (audioRef.current && audioRef.current.paused) {
+            audioRef.current.play().catch((err) =>
+              console.log('Autoplay error:', err)
+            );
+          }
+        } else if (audioRef.current && !audioRef.current.paused) {
+          audioRef.current.pause();
         }
       },
       { threshold: 0.3 }
     );
+
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
@@ -38,7 +49,7 @@ const TrustedStatsSection = () => {
   useEffect(() => {
     if (!startCounting) return;
 
-    const targets = { customers: 50000, products: 500, satisfaction: 99 };
+    const targets = { customers: 50000, products: 250, satisfaction: 92.7 };
     const steps = {
       customers: Math.ceil(targets.customers / 100),
       products: Math.ceil(targets.products / 100),
@@ -70,6 +81,13 @@ const TrustedStatsSection = () => {
       ref={sectionRef}
       className="relative overflow-hidden bg-[#0f172a] py-16 text-white w-full"
     >
+      <audio
+        ref={audioRef}
+        src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+        preload="auto"
+        loop
+      />
+
       <style>
         {`
           @keyframes scrollUp {
@@ -94,16 +112,16 @@ const TrustedStatsSection = () => {
         {[...Array(4)].map((_, col) => (
           <div
             key={col}
-            className={`relative h-[200%] w-[25%] flex flex-col items-center ${
+            className={`relative h-[200%] ${
               col % 2 === 0 ? 'scroll-up-smooth' : 'scroll-down-smooth'
-            }`}
+            } w-1/2 sm:w-1/4 flex flex-col items-center`}
           >
             {[...logos, ...logos].map((logo, idx) => (
               <img
                 key={`${col}-${idx}`}
                 src={logo}
                 alt={`logo-${idx}`}
-                className="w-[200px] h-[60px] object-contain brightness-110 contrast-125 drop-shadow-md bg-white/10 rounded p-2 my-2"
+                className="max-w-[32vw] sm:max-w-[140px] h-auto object-contain brightness-110 contrast-125 drop-shadow-md bg-white/10 rounded p-2 my-2"
               />
             ))}
           </div>
@@ -112,14 +130,11 @@ const TrustedStatsSection = () => {
 
       {/* Foreground Content */}
       <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
-        <h2 className="text-4xl sm:text-5xl font-extrabold mb-4 leading-tight">
+        <h2 className="text-3xl sm:text-5xl font-extrabold mb-16 leading-tight">
           Investing in <span className="text-blue-400">teamwork</span> pays off
         </h2>
-        <p className="text-slate-300 text-lg sm:text-xl mb-12 max-w-2xl mx-auto">
-          Experience the difference with our premium gaming and tech solutions
-        </p>
 
-        <div className="inline-block w-full p-8 rounded-xl border border-blue-500 bg-[#192747]/90 backdrop-blur-sm shadow-2xl">
+        <div className="inline-block w-full p-6 sm:p-8 rounded-xl border border-blue-500 bg-[#192747]/90 backdrop-blur-sm shadow-2xl">
           <div className="flex flex-col sm:flex-row justify-center sm:space-x-8 space-y-6 sm:space-y-0 text-center items-center">
             <div>
               <div className="text-3xl sm:text-4xl font-bold text-blue-400">

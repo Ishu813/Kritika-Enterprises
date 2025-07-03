@@ -16,9 +16,7 @@ import img6 from "../assets/store6.jpeg";
 import Founder from "./Founder";
 import Testimonials from "./Testimonials";
 import { Link } from "react-router-dom";
-
 import { Building2, ShoppingCart, Users, MessageSquare } from "lucide-react";
-
 import { useState, useEffect, useRef } from "react";
 import ProductsCarosel from "./ProductsCarousel";
 
@@ -28,7 +26,6 @@ const HeroSection = () => {
   const [current, setCurrent] = useState(0);
   const timeoutRef = useRef(null);
 
-  // Auto-slide logic
   useEffect(() => {
     timeoutRef.current = setTimeout(() => {
       setCurrent((prev) => (prev + 1) % carouselImages.length);
@@ -36,15 +33,11 @@ const HeroSection = () => {
     return () => clearTimeout(timeoutRef.current);
   }, [current]);
 
-  // Handlers for arrows
   const prevSlide = () =>
-    setCurrent(
-      (prev) => (prev - 1 + carouselImages.length) % carouselImages.length
-    );
+    setCurrent((prev) => (prev - 1 + carouselImages.length) % carouselImages.length);
   const nextSlide = () =>
     setCurrent((prev) => (prev + 1) % carouselImages.length);
 
-  // Touch/swipe logic
   const startX = useRef(null);
   const handleTouchStart = (e) => {
     startX.current = e.touches[0].clientX;
@@ -57,7 +50,6 @@ const HeroSection = () => {
     startX.current = null;
   };
 
-  //
   const features = [
     {
       icon: Building2,
@@ -100,15 +92,13 @@ const HeroSection = () => {
               support to deliver exceptional shopping experiences.
             </p>
           </div>
-          {/*Card for feature display*/}
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => {
               let linkTo = null;
               if (feature.title === "B2B Solutions") linkTo = "/products/b2b";
-              else if (feature.title === "B2C Marketplace")
-                linkTo = "/products/b2c";
-              else if (feature.title === "Expert Consultation")
-                linkTo = "/expert-assistance";
+              else if (feature.title === "B2C Marketplace") linkTo = "/products/b2c";
+              else if (feature.title === "Expert Consultation") linkTo = "/expert-assistance";
 
               const cardElement = (
                 <Card
@@ -121,7 +111,7 @@ const HeroSection = () => {
                     >
                       <feature.icon className="h-8 w-8 transition-transform duration-300 group-hover:scale-105" />
                     </div>
-                    <CardTitle className="text-xl font-bold text-white ">
+                    <CardTitle className="text-xl font-bold text-white">
                       {feature.title}
                     </CardTitle>
                   </CardHeader>
@@ -132,12 +122,9 @@ const HeroSection = () => {
                   </CardContent>
                 </Card>
               );
+
               return linkTo ? (
-                <Link
-                  to={linkTo}
-                  key={index}
-                  style={{ textDecoration: "none" }}
-                >
+                <Link to={linkTo} key={index} style={{ textDecoration: "none" }}>
                   {cardElement}
                 </Link>
               ) : (
@@ -149,7 +136,6 @@ const HeroSection = () => {
 
         {/* About Store Section */}
         <div className="pl-2 pr-2 sm:pl-4 sm:pr-4 mx-auto bg-[#192747] rounded-xl sm:rounded-3xl p-4 sm:p-8 text-white shadow-xl">
-          {/* Top Heading Centered */}
           <div className="text-center mb-6">
             <div className="font-bold text-white text-3xl sm:text-4xl md:text-5xl">
               About Kritika-Enterprises
@@ -162,9 +148,7 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Side-by-side Layout */}
           <div className="flex flex-col-reverse lg:flex-row gap-4 pt-8 sm:gap-8 items-start">
-            {/* Left Text */}
             <div className="text-left w-full lg:w-1/2">
               <h2 className="text-xl sm:text-2xl font-semibold mt-2 text-left">
                 We sell&nbsp;
@@ -211,7 +195,6 @@ const HeroSection = () => {
               </p>
             </div>
 
-            {/* Right: Carousel */}
             <div
               className="relative w-full lg:w-1/2 h-60 sm:h-64 md:h-72 lg:h-80 rounded-md sm:rounded-lg overflow-hidden bg-white shadow-md"
               onTouchStart={handleTouchStart}
@@ -235,12 +218,13 @@ const HeroSection = () => {
             </div>
           </div>
         </div>
+
         {/* Brands section */}
-        <div className=" rounded lg:rounded mt-8">
-          <h2 className="  sm:text-3xl text-center font-bold">
-            <span className=" text-white px-4 py-1 text-5xl  inline-block">
+        <div className="rounded lg:rounded mt-8">
+          <h2 className="sm:text-3xl text-center font-bold">
+            <span className="text-white px-4 py-1 text-5xl inline-block">
               Trusted Brand Partners
-              <div className=" text-2xl mt-4 text-slate-100">
+              <div className="text-2xl mt-4 text-slate-100">
                 We partner with the world's leading technology brands
               </div>
             </span>
@@ -251,7 +235,6 @@ const HeroSection = () => {
         </div>
 
         <Founder />
-
         <Testimonials />
       </div>
     </div>
