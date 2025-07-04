@@ -6,13 +6,5 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: true
-  },
-  assetsInclude: ['**/*.html'],
-  build: {
-    rollupOptions: {
-      input: {
-        main: './index.html'
-      }
-    }
   }
 })
