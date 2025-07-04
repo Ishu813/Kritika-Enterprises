@@ -138,7 +138,7 @@ function Chatbot() {
         text: 'For further assistance, schedule a meet ',
         sender: 'bot',
         linkText: 'here',
-        url: 'https://www.thekayee.com/expert-assistance'
+        url: '/expert-assistance'
       }]);
       setMeetPrompted(true);
     }
