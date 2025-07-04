@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon backend/hardware-chatbot/server.js",
-    "start": "nodemon backend/hardware-chatbot/server.js",
+    "dev": "nodemon server.js",
+    "start": "node server.js",
     "build": "echo 'No build step required for backend'"
   },
   "keywords": [],
