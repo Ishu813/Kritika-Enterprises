@@ -18,7 +18,7 @@ import Testimonials from "./Testimonials";
 import { Link } from "react-router-dom";
 import { Building2, ShoppingCart, Users, MessageSquare } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
-import ProductsCarosel from "./ProductsCarousel";
+import ProductsCarousel from "./ProductsCarousel";
 
 const carouselImages = [img1, img2, img3, img4, img5, img6];
 
@@ -79,7 +79,7 @@ const HeroSection = () => {
 
   return (
     <div className="flex flex-col w-full object-cover text-[#1F2937] pl-0 pr-2 sm:pl-2 sm:pr-4">
-      <ProductsCarosel />
+      <ProductsCarousel />
 
       <div className="min-h-screen">
         <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
