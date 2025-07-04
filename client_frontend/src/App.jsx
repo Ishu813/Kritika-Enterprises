@@ -11,6 +11,7 @@ import LoginPage from "./components/LoginPage";
 // import Advisorform from "./components/Advisorform";
 import ExpertAssistance from "./components/ExpertAssistance";
 import Developers from "./components/Developers";
+import Chatbot from "./components/Chatbot";
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
           <Route path="/expert-assistance" element={<ExpertAssistance />} />
         </Routes>
         <Contact />
+        <Chatbot />
       </div>
     </div>
   );
