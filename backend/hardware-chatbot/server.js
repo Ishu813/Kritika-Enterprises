@@ -18,14 +18,25 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Dialogflow client setup
-const credentials = JSON.parse(process.env.GOOGLE_CREDENTIALS_JSON);
-const sessionClient = new dialogflow.SessionsClient({
-  projectId: process.env.DIALOGFLOW_PROJECT_ID,
-  credentials: {
-    client_email: credentials.client_email,
-    private_key: credentials.private_key,
+let sessionClient;
+try {
+  if (!process.env.GOOGLE_CREDENTIALS_JSON) {
+    throw new Error('GOOGLE_CREDENTIALS_JSON environment variable is not set');
   }
-});
+  
+  const credentials = JSON.parse(process.env.GOOGLE_CREDENTIALS_JSON);
+  sessionClient = new dialogflow.SessionsClient({
+    projectId: process.env.DIALOGFLOW_PROJECT_ID,
+    credentials: {
+      client_email: credentials.client_email,
+      private_key: credentials.private_key,
+    }
+  });
+  console.log('✅ Dialogflow client initialized successfully');
+} catch (error) {
+  console.error('❌ Error initializing Dialogflow client:', error.message);
+  console.error('Server will continue but Dialogflow features may not work');
+}
 
 // Initialize Razorpay instance
 // const razorpay = new Razorpay({
