@@ -9,12 +9,12 @@ const Contact = () => {
               Kritika enterprises
             </h2>
             <div className="">
-              <a href="tel:+919927055680" className="text-[#a1c2ef] hover:underline">
-                +91 9927055680
+              <a href="tel:+918279964790" className="text-[#a1c2ef] hover:underline">
+              8279964790
               </a>
               <br />
-              <a href="mailto:email@example.com" className="text-[#a1c2ef] hover:underline">
-                email@example.com
+              <a href="mailto:kritika.thekayee@gmail.com" className="text-[#a1c2ef] hover:underline">
+              kritika.thekayee@gmail.com
               </a>
               <div className="mt-4 text-[#a1c2ef] ">
                 C-8 Butler Plaza

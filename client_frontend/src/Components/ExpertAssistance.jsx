@@ -16,8 +16,24 @@ const ExpertAssistance = () => {
     message: ""
   });
 
+  const [formErrors, setFormErrors] = useState({});
+  const [submitted, setSubmitted] = useState(false);
+
+  const validateForm = () => {
+    const errors = {};
+    if (!formData.name.trim()) errors.name = 'Name is required.';
+    if (!formData.phone.trim()) errors.phone = 'Mobile is required.';
+    if (!formData.email.trim()) errors.email = 'Email is required.';
+    if (!formData.inquiryType.trim()) errors.inquiryType = 'Inquiry type is required.';
+    return errors;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    setSubmitted(true);
+    const errors = validateForm();
+    setFormErrors(errors);
+    if (Object.keys(errors).length > 0) return;
     console.log("Form submitted:", formData);
     toast({
       title: "Request Submitted",
@@ -93,6 +109,9 @@ const ExpertAssistance = () => {
                     required
                     className="placeholder:text-gray-400"
                   />
+                  {submitted && formErrors.name && (
+                    <p className="text-red-500 text-sm mt-1">{formErrors.name}</p>
+                  )}
                 </div>
                 <div>
                   <label className="block text-white text-sm font-medium mb-2">Email *</label>
@@ -105,6 +124,9 @@ const ExpertAssistance = () => {
                     required
                     className="placeholder:text-gray-400"
                   />
+                  {submitted && formErrors.email && (
+                    <p className="text-red-500 text-sm mt-1">{formErrors.email}</p>
+                  )}
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -120,15 +142,19 @@ const ExpertAssistance = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-white text-sm font-medium mb-2">Phone</label>
+                  <label className="block text-white text-sm font-medium mb-2">Phone *</label>
                   <Input
                     type="tel"
                     name="phone"
                     placeholder="Phone"
                     value={formData.phone}
                     onChange={handleChange}
+                    required
                     className="placeholder:text-gray-400"
                   />
+                  {submitted && formErrors.phone && (
+                    <p className="text-red-500 text-sm mt-1">{formErrors.phone}</p>
+                  )}
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -149,15 +175,17 @@ const ExpertAssistance = () => {
                     <option value="custom_solution">Custom Solution</option>
                     <option value="other">Other</option>
                   </select>
+                  {submitted && formErrors.inquiryType && (
+                    <p className="text-red-500 text-sm mt-1">{formErrors.inquiryType}</p>
+                  )}
                 </div>
                 <div>
-                  <label className="block text-white text-sm font-medium mb-2">Budget Range *</label>
+                  <label className="block text-white text-sm font-medium mb-2">Budget Range</label>
                   <select
                     name="budget"
                     value={formData.budget}
                     onChange={handleChange}
                     className="w-full rounded-md border border-gray-600 bg-gray-700 text-white p-3 placeholder:text-gray-400"
-                    required
                   >
                     <option value="" disabled>
                       Select Budget Range
@@ -170,7 +198,7 @@ const ExpertAssistance = () => {
                 </div>
               </div>
               <div>
-                <label className="block text-white text-sm font-medium mb-2">Message *</label>
+                <label className="block text-white text-sm font-medium mb-2">Message</label>
                 <Textarea
                   name="message"
                   placeholder="Message"
