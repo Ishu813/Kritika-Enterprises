@@ -90,7 +90,7 @@ const Leftbar = () => {
           >
             <FaCogs className="text-lg hover:text-blue-600" />
             <span className="text-sm font-bold items-center justify-between w-full group-hover:flex hidden">
-              B2C <FaChevronRight className="ml-auto" />
+              B2C solutions <FaChevronRight className="ml-auto" />
             </span>
             {/* B2C submenu */}
             {activeMainMenu === "services" && (
@@ -121,7 +121,7 @@ const Leftbar = () => {
           >
             <HiOutlineLightBulb className="text-2xl hover:text-blue-600" />
             <span className="text-sm font-bold items-center justify-between w-full group-hover:flex hidden">
-              B2B <FaChevronRight className="ml-auto" />
+              B2B Solutions <FaChevronRight className="ml-auto" />
             </span>
             {/* B2B categories submenu */}
             {activeMainMenu === "solutions" && (

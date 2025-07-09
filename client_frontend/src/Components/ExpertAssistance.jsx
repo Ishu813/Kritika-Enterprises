@@ -63,14 +63,14 @@ const ExpertAssistance = () => {
       icon: Phone,
       title: "Phone Support",
       description: "Speak directly with our experts",
-      contact: "+1 (555) 123-4567",
+      contact: "+91 8279964790",
       available: "Mon-Fri 9AM-6PM EST"
     },
     {
       icon: Mail,
       title: "Email Support",
       description: "Get detailed technical assistance",
-      contact: "support@kritikeenterprises.com",
+      contact: "kritika.thekayee@gmail.com",
       available: "24/7 Response"
     },
     {
@@ -190,10 +190,10 @@ const ExpertAssistance = () => {
                     <option value="" disabled>
                       Select Budget Range
                     </option>
-                    <option value="under_1000">Under 1,000</option>
-                    <option value="1000_5000">1,000 - 5,000</option>
-                    <option value="5000_10000">5,000 - 10,000</option>
-                    <option value="above_10000">Above 10,000</option>
+                    <option value="under_1000">Under 30,000</option>
+                    <option value="1000_5000">30,000 - 50,000</option>
+                    <option value="5000_10000">50,000 - 1,00,000</option>
+                    <option value="above_10000">Above 1,00,000</option>
                   </select>
                 </div>
               </div>
