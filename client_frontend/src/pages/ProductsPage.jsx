@@ -114,12 +114,16 @@ const ProductsPage = () => {
     processorFilteredProducts,
     graphicCardFilteredProducts,
   ]);
+  const title = searchParams.get("category")
+    ? searchParams.get("category").charAt(0).toUpperCase() +
+      searchParams.get("category").slice(1)
+    : null;
 
   return (
     <div className="flex flex-col h-screen text-white ">
       {/* Header */}
       <div className="p-4 bg-[#0f172a] text-white ">
-        <p className="text-2xl font-bold">All Products</p>
+        <p className="text-2xl font-bold">{title ? title : "All Products"}</p>
         <hr />
       </div>
 

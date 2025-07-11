@@ -103,17 +103,19 @@ const ProductDetailsPage = () => {
             {new Intl.NumberFormat("en-IN").format(Number(product.price))}
           </span>
           &nbsp;&nbsp;&nbsp;&nbsp;
-          <div
-            style={{
-              backgroundColor: "#10b981",
-              color: "#f8fafc",
-              fontSize: "12px",
-              padding: "0.5rem",
-              borderRadius: "4px",
-            }}
-          >
-            Save {product.discount}%
-          </div>
+          {product.discount ? (
+            <div
+              style={{
+                backgroundColor: "#10b981",
+                color: "#f8fafc",
+                fontSize: "12px",
+                padding: "0.5rem",
+                borderRadius: "4px",
+              }}
+            >
+              Save {product.discount}%
+            </div>
+          ) : null}
         </div>
         <div>
           {" "}
