@@ -5,7 +5,6 @@ import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore"; // 👉 Import Firestore
 
 // Firebase configuration
-console.log("API KEY:", import.meta.env.VITE_FIREBASE_API_KEY); 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
