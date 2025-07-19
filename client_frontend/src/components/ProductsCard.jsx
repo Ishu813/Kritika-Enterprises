@@ -22,7 +22,7 @@ const ProductCard = ({ product }) => {
       <div className="w-72 relative">
         <img className="w-72 max-h-52" src={product.imageUrl} />
         <a
-          href={`https://wa.me/918081714797?text=${encodedMessage}`}
+          href={`https://wa.me/917982152940?text=${encodedMessage}`}
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => e.stopPropagation()}

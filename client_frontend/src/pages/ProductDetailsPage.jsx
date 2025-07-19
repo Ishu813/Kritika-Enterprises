@@ -33,6 +33,12 @@ const ProductDetailsPage = () => {
     return null;
   }
 
+  const product_link = `https://www.thekayee.com/products/${encodeURIComponent(
+    product.id
+  )}`;
+  const text = `Hi, I’d like to get your consent for the product "${product.id}". Here’s the product link: ${product_link}`;
+  const encodedMessage = encodeURIComponent(text);
+
   return (
     <div
       style={{
@@ -80,6 +86,18 @@ const ProductDetailsPage = () => {
             </span>
           )}
         </div>
+        {/* Whatsapp consent */}
+        <a
+          href={`https://wa.me/917982152940?text=${encodedMessage}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div className="flex z-50 p-2 rounded-full bg-black backdrop-blur-sm justify-center items-center">
+            <i className="fa-brands fa-whatsapp text-green-500 text-2xl"></i>
+            <p>&nbsp;&nbsp;Take consent from the Seller</p>
+          </div>
+        </a>
+
         <div
           style={{ margin: "1rem 0", display: "flex", alignItems: "center" }}
         >
