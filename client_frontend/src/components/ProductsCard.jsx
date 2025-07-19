@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
 const ProductCard = ({ product }) => {
+  const [showText, setShowText] = useState(false);
   const key_features = product.key_features.filter(
     (feature, idx) => feature !== "" && idx <= 2
   );
+
+  const product_link = `https://www.thekayee.com/products/${encodeURIComponent(
+    product.id
+  )}`;
+  const text = `Hi, I’d like to get your consent for the product "${product.name}". Here’s the product link: ${product_link}`;
+  const encodedMessage = encodeURIComponent(text);
+
   return (
     <div
       className="w-72 bg-[#192747] rounded-xl overflow-hidden shadow-lg m-2  border-2 border-slate-700 hover:opacity-80 transition-opacity cursor-pointer"
@@ -13,6 +21,22 @@ const ProductCard = ({ product }) => {
     >
       <div className="w-72 relative">
         <img className="w-72 max-h-52" src={product.imageUrl} />
+        <a
+          href={`https://wa.me/918081714797?text=${encodedMessage}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div
+            onMouseOver={() => setShowText(true)}
+            onMouseOut={() => setShowText(false)}
+            className="flex z-50 absolute top-4 left-4 p-2 rounded-full bg-black backdrop-blur-sm justify-center items-center"
+          >
+            <i className="fa-brands fa-whatsapp text-green-500 text-2xl"></i>
+
+            {showText && <p>&nbsp;&nbsp;Take consent from the Seller</p>}
+          </div>
+        </a>
         <div className="flex absolute top-4 right-4 p-2 rounded-full bg-black/20 backdrop-blur-sm justify-center items-center hover:opacity-50 transition-opacity">
           <i className="fa-solid fa-cart-shopping"></i>
         </div>
