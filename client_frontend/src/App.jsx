@@ -15,7 +15,7 @@ import ComingSoon from "./components/ComingSoon";
 import TempNavbar from "./components/TempNavbar";
 
 const App = () => {
-  const isDownForMaintenance = false;
+  const isDownForMaintenance = true;
   return (
     <div className="relative z-0 bg-[#0f172a] min-h-screen">
       {isDownForMaintenance ? (
