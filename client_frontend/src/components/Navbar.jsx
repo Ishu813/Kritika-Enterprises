@@ -17,11 +17,8 @@ const Navbar = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setCurrentUser(user);
-        console.log("User is authenticated");
-        // You can access user.uid, user.email, etc.
       } else {
         setCurrentUser("");
-        console.log("No user is authenticated");
       }
     });
   }, []);
@@ -93,7 +90,10 @@ const Navbar = () => {
                     alt="user"
                     className="w-9 h-9 rounded-full object-cover border-2 border-blue-400"
                   /> */}
-                  <i style={{ fontSize: "1rem" }} className="fa-solid fa-user"></i>
+                  <i
+                    style={{ fontSize: "1rem" }}
+                    className="fa-solid fa-user"
+                  ></i>
                 </NavLink>
               </>
             )}
