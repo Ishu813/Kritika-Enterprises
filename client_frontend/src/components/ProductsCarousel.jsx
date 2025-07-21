@@ -1,10 +1,27 @@
-import React, { useState, useEffect, useRef } from 'react';
-import prod1 from '../assets/product1.webp';
-import prod2 from '../assets/product2.webp';
-import prod3 from '../assets/product3.webp';
-import prod4 from '../assets/product4.webp';
+import React, { useState, useEffect, useRef } from "react";
+import prod1 from "../assets/carousals/acercar.241Z.png";
+import prod2 from "../assets/carousals/asus2car.097Z.png";
+import prod3 from "../assets/carousals/cybernetyxcar.644Z.png";
+import prod4 from "../assets/carousals/hpvictuscar.128Z.png";
+import prod5 from "../assets/carousals/lenovoideapadcar.210Z.png";
+import prod6 from "../assets/carousals/LGcar.453Z.png";
+import prod7 from "../assets/carousals/maxhubcar.548Z.png";
+import prod8 from "../assets/carousals/sonycar.184Z.png";
+import prod9 from "../assets/carousals/tplinkcar.034Z.png";
+import prod10 from "../assets/carousals/tufcar.633Z.png";
 
-const productCarouselImages = [prod1, prod2, prod3,prod4];
+const productCarouselImages = [
+  prod1,
+  prod2,
+  prod3,
+  prod4,
+  prod5,
+  prod6,
+  prod7,
+  prod8,
+  prod9,
+  prod10,
+];
 
 const ProductsCarosel = () => {
   const [current, setCurrent] = useState(0);
@@ -19,12 +36,19 @@ const ProductsCarosel = () => {
   }, [current]);
 
   // Handlers for arrows
-  const prevSlide = () => setCurrent((prev) => (prev - 1 + productCarouselImages.length) % productCarouselImages.length);
-  const nextSlide = () => setCurrent((prev) => (prev + 1) % productCarouselImages.length);
+  const prevSlide = () =>
+    setCurrent(
+      (prev) =>
+        (prev - 1 + productCarouselImages.length) % productCarouselImages.length
+    );
+  const nextSlide = () =>
+    setCurrent((prev) => (prev + 1) % productCarouselImages.length);
 
   // Touch/swipe logic
   const startX = useRef(null);
-  const handleTouchStart = (e) => { startX.current = e.touches[0].clientX; };
+  const handleTouchStart = (e) => {
+    startX.current = e.touches[0].clientX;
+  };
   const handleTouchEnd = (e) => {
     if (startX.current === null) return;
     const diff = e.changedTouches[0].clientX - startX.current;
@@ -68,7 +92,9 @@ const ProductsCarosel = () => {
             {productCarouselImages.map((_, idx) => (
               <span
                 key={idx}
-                className={`w-2 h-2 rounded-full ${idx === current ? 'bg-[#6f46a6]' : 'bg-gray-300'}`}
+                className={`w-2 h-2 rounded-full ${
+                  idx === current ? "bg-[#6f46a6]" : "bg-gray-300"
+                }`}
               />
             ))}
           </div>
