@@ -28,23 +28,26 @@ const ProductCard = ({ product }) => {
           onClick={(e) => e.stopPropagation()}
         >
           <div
-            onMouseOver={() => setShowText(true)}
-            onMouseOut={() => setShowText(false)}
-            className="flex z-50 absolute top-4 left-4 p-2 rounded-full bg-black backdrop-blur-sm justify-center items-center"
+            onMouseEnter={() => setShowText(true)}
+            onMouseLeave={() => setShowText(false)}
+            className="absolute z-20 h-50 top-4 left-4 flex items-center justify-center p-2 rounded-full bg-black/80 backdrop-blur-sm"
           >
             <i className="fa-brands fa-whatsapp text-green-500 text-2xl"></i>
-
-            {showText && <p>&nbsp;&nbsp;Take consent from the Seller</p>}
+            {showText && (
+              <span className="ml-2 text-white">
+                Take consent from the Seller
+              </span>
+            )}
           </div>
         </a>
         <div className="flex absolute top-4 right-4 p-2 rounded-full bg-black/20 backdrop-blur-sm justify-center items-center hover:opacity-50 transition-opacity">
           <i className="fa-solid fa-cart-shopping"></i>
         </div>
-        {product.discount ? (
+        {/* {product.discount ? (
           <div className="flex absolute top-4 left-4 p-2 rounded-full bg-green-600 text-white justify-center items-center">
             -{product.discount}%
           </div>
-        ) : null}
+        ) : null} */}
       </div>
       <div className="rounded-xl">
         <div className="h-40 p-3 rounded-xl overflow-hidden">
