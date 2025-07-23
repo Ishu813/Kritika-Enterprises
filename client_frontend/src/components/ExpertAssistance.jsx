@@ -64,7 +64,7 @@ const ExpertAssistance = () => {
       icon: Phone,
       title: "Phone Support",
       description: "Speak directly with our experts",
-      contact: "+91 8279964790",
+      contact: "+91 6396538256, +91 7982151940",
       available: "Mon-Fri 9AM-6PM EST",
     },
     {

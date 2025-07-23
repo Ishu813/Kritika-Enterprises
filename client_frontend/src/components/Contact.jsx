@@ -10,10 +10,17 @@ const Contact = () => {
             </h2>
             <div className="">
               <a
-                href="tel:+918279964790"
+                href="tel:+916396538256"
                 className="text-[#a1c2ef] hover:underline"
               >
-                8279964790
+                6396538256
+              </a>
+              <br />
+              <a
+                href="tel:+917982151940"
+                className="text-[#a1c2ef] hover:underline"
+              >
+                7982151940
               </a>
               <br />
               <a

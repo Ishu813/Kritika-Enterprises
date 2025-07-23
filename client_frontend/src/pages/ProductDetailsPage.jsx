@@ -227,12 +227,12 @@ const ProductDetailsPage = () => {
           </span>
           <span>
             <i className="fa-solid fa-shield"></i>&nbsp;
-            <span>{product.warranty_years} year Warranty</span>
+            <span>{product.warranty_years}</span>
           </span>
-          <span>
+          {/* <span>
             <i className="fa-solid fa-rotate-left"></i>&nbsp;
             <span>30 Day Return</span>
-          </span>
+          </span> */}
         </div>
       </div>
     </div>
