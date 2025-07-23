@@ -164,79 +164,79 @@ const Leftbar = () => {
             {activeMainMenu === "services" && (
               <div className="fixed top-20 left-40 w-32 h-screen bg-[#0f172a] border border-slate-700 rounded shadow-md z-[999] transition-all duration-400">
                 <Link
-                  to="/products?category=laptops"
+                  to="/products?category=laptops&type=b2c"
                   className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                 >
                   Laptops
                 </Link>
                 <Link
-                  to="/products?category=desktops"
+                  to="/products?category=desktops&type=b2c"
                   className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                 >
                   Desktops
                 </Link>
                 <Link
-                  to="/products?category=gaming-laptops"
+                  to="/products?category=gaming-laptops&type=b2c"
                   className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                 >
                   Gaming Laptops
                 </Link>
                 <Link
-                  to="/products?category=printers"
+                  to="/products?category=printers&type=b2c"
                   className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                 >
                   Printers
                 </Link>
                 <Link
-                  to="/products?category=custompc"
+                  to="/products?category=custompc&type=b2c"
                   className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                 >
                   Custom PC
                 </Link>
                 <Link
-                  to="/products?category=antivirus"
+                  to="/products?category=antivirus&type=b2c"
                   className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                 >
                   Antivirus
                 </Link>
                 <Link
-                  to="/products?category=gaming-monitor"
+                  to="/products?category=gaming-monitor&type=b2c"
                   className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                 >
                   Gaming Monitor
                 </Link>
                 <Link
-                  to="/products?category=rams"
+                  to="/products?category=rams&type=b2c"
                   className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                 >
                   RAMs
                 </Link>
                 <Link
-                  to="/products?category=ssd"
+                  to="/products?category=ssd&type=b2c"
                   className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                 >
                   SSD
                 </Link>
                 <Link
-                  to="/products?category=pendrives"
+                  to="/products?category=pendrives&type=b2c"
                   className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                 >
                   Pen Drives
                 </Link>
                 <Link
-                  to="/products?category=external-hardisk"
+                  to="/products?category=external-hardisk&type=b2c"
                   className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                 >
                   External Hard Disks
                 </Link>
                 <Link
-                  to="/products?category=i/o-devices"
+                  to="/products?category=i/o-devices&type=b2c"
                   className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                 >
                   I/O Devices
                 </Link>
                 <Link
-                  to="/products?category=ups"
+                  to="/products?category=ups&type=b2c"
                   className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                 >
                   UPS
@@ -285,31 +285,31 @@ const Leftbar = () => {
                   {activeB2BCategory === "schools" && (
                     <div className="fixed top-20 left-[18rem] w-40 h-screen bg-[#0f172a] border border-slate-700 rounded shadow-md z-[1000] transition-all duration-300">
                       <Link
-                        to="/products?category=laptops"
+                        to="/products?category=laptops&type=b2b"
                         className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                       >
                         Laptops
                       </Link>
                       <Link
-                        to="/products?category=desktops"
+                        to="/products?category=desktops&type=b2b"
                         className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                       >
                         Desktops
                       </Link>
                       <Link
-                        to="/products?category=digital-boards"
+                        to="/products?category=digital-boards&type=b2b"
                         className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                       >
                         Digital Boards
                       </Link>
                       <Link
-                        to="/products?category=projectors"
+                        to="/products?category=projectors&type=b2b"
                         className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                       >
                         Projectors
                       </Link>
                       <Link
-                        to="/products?category=printers"
+                        to="/products?category=printers&type=b2b"
                         className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                       >
                         Printers
@@ -340,25 +340,25 @@ const Leftbar = () => {
                   {activeB2BCategory === "industry" && (
                     <div className="fixed top-20 left-[18rem] w-40 h-screen bg-[#0f172a] border border-slate-700 rounded shadow-md z-[1000] transition-all duration-300">
                       <Link
-                        to="/products?category=servers"
+                        to="/products?category=servers&type=b2b"
                         className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                       >
                         Servers
                       </Link>
                       <Link
-                        to="/products?category=firewalls"
+                        to="/products?category=firewalls&type=b2b"
                         className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                       >
                         Firewalls
                       </Link>
                       <Link
-                        to="/products?category=online-ups"
+                        to="/products?category=online-ups&type=b2b"
                         className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                       >
                         Online UPS
                       </Link>
                       <Link
-                        to="/products?category=storages"
+                        to="/products?category=storages&type=b2b"
                         className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                       >
                         Storages
@@ -389,25 +389,25 @@ const Leftbar = () => {
                   {activeB2BCategory === "medical" && (
                     <div className="fixed top-20 left-[18rem] w-40 h-screen bg-[#0f172a] border border-slate-700 rounded shadow-md z-[1000] transition-all duration-300">
                       <Link
-                        to="/products?category=laptops"
+                        to="/products?category=laptops&type=b2b"
                         className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                       >
                         Laptops
                       </Link>
                       <Link
-                        to="/products?category=desktops"
+                        to="/products?category=desktops&type=b2b"
                         className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                       >
                         Desktops
                       </Link>
                       <Link
-                        to="/products?category=printers"
+                        to="/products?category=printers&type=b2b"
                         className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                       >
                         Printers
                       </Link>
                       <Link
-                        to="/products?category=monitors"
+                        to="/products?category=monitors&type=b2b"
                         className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                       >
                         Monitors
@@ -438,43 +438,43 @@ const Leftbar = () => {
                   {activeB2BCategory === "hospitality" && (
                     <div className="fixed top-20 left-[18rem] w-40 h-screen bg-[#0f172a] border border-slate-700 rounded shadow-md z-[1000] transition-all duration-300">
                       <Link
-                        to="/products?category=digital-signage"
+                        to="/products?category=digital-signage&type=b2b"
                         className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                       >
                         Digital Signage
                       </Link>
                       <Link
-                        to="/products?category=led-walls"
+                        to="/products?category=led-walls&type=b2b"
                         className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                       >
                         LED Walls
                       </Link>
                       <Link
-                        to="/products?category=public-addressing-system"
+                        to="/products?category=public-addressing-system&type=b2b"
                         className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                       >
                         Public Addressing System
                       </Link>
                       <Link
-                        to="/products?category=commercial-tvs"
+                        to="/products?category=commercial-tvs&type=b2b"
                         className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                       >
                         Commercial TVs
                       </Link>
                       <Link
-                        to="/products?category=commercial-printers"
+                        to="/products?category=commercial-printers&type=b2b"
                         className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                       >
                         Commercial Printers
                       </Link>
                       <Link
-                        to="/products?category=ptz-cameras"
+                        to="/products?category=ptz-cameras&type=b2b"
                         className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                       >
                         PTZ Cameras
                       </Link>
                       <Link
-                        to="/products?category=thermal-printers"
+                        to="/products?category=thermal-printers&type=b2b"
                         className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                       >
                         Thermal Printers

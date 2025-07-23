@@ -82,9 +82,12 @@ const ProductsPage = () => {
       });
 
       const category = searchParams.get("category");
+      const type = searchParams.get("type");
 
       const categoryFiltered = items.filter(
-        (item) => item.category === category || category === null
+        (item) =>
+          (item.category === category || category === null) &&
+          (item.type === type || type === null)
       );
 
       setProducts(categoryFiltered);
@@ -96,7 +99,7 @@ const ProductsPage = () => {
     };
 
     fetchData();
-  }, [searchParams]); // ✅ searchParams is safe to depend on
+  }, [searchParams]);
 
   useEffect(() => {
     const filterProducts = products.filter((product) => {
