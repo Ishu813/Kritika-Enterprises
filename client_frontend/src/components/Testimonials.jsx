@@ -147,7 +147,7 @@ const TrustedStatsSection = () => {
         ))}
       </div>
 
-      <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
+      <div className="relative z-0 text-center px-4 max-w-6xl mx-auto">
         <h2 className="text-3xl sm:text-5xl font-extrabold mb-16 leading-tight">
           Investing in <span className="text-blue-400">teamwork</span> pays off
         </h2>

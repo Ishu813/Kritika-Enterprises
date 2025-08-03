@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
+import useDeviceType from "../hooks/useDeviceType";
 import {
   FaHome,
   FaBox,
@@ -12,6 +13,7 @@ import { HiOutlineLightBulb } from "react-icons/hi";
 
 // Sidebar navigation for the application
 const Leftbar = () => {
+  const device = useDeviceType();
   // State to track which main menu (Products, B2C, B2B) is currently expanded
   const [activeMainMenu, setActiveMainMenu] = useState(null); // e.g. "products", "b2c", "b2b"
   // State to track which submenu (category under B2B) is currently expanded
@@ -264,17 +266,23 @@ const Leftbar = () => {
               <div className="fixed top-20 left-40 w-32 h-screen bg-[#0f172a] border border-slate-700 rounded shadow-md z-[999] flex flex-col transition-all duration-400">
                 {/* Education category */}
                 <div
-                  onMouseEnter={() => setActiveB2BCategory("schools")}
-                  onMouseLeave={() => setActiveB2BCategory(null)}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleB2BCategoryClick("schools");
-                  }}
+                  {...(device === "desktop"
+                    ? {
+                        onMouseEnter: () => setActiveB2BCategory("education"),
+                        onMouseLeave: () => setActiveB2BCategory(null),
+                        onClick: undefined,
+                      }
+                    : {
+                        onClick: (e) => {
+                          e.stopPropagation();
+                          handleB2BCategoryClick("education");
+                        },
+                      })}
                   className="relative"
                 >
                   <div
                     className={`px-4 py-2 cursor-pointer flex justify-between ${
-                      activeB2BCategory === "schools"
+                      activeB2BCategory === "education"
                         ? "text-blue-600"
                         : "text-white"
                     } hover:bg-blue-50 hover:text-blue-600 transition-colors rounded-md`}
@@ -282,7 +290,7 @@ const Leftbar = () => {
                     Education <FaChevronRight />
                   </div>
                   {/* Education submenu */}
-                  {activeB2BCategory === "schools" && (
+                  {activeB2BCategory === "education" && (
                     <div className="fixed top-20 left-[18rem] w-40 h-screen bg-[#0f172a] border border-slate-700 rounded shadow-md z-[1000] transition-all duration-300">
                       <Link
                         to="/products?category=laptops&type=b2b"
@@ -319,12 +327,18 @@ const Leftbar = () => {
                 </div>
                 {/* Industry Supplies category */}
                 <div
-                  onMouseEnter={() => setActiveB2BCategory("industry")}
-                  onMouseLeave={() => setActiveB2BCategory(null)}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleB2BCategoryClick("industry");
-                  }}
+                  {...(device === "desktop"
+                    ? {
+                        onMouseEnter: () => setActiveB2BCategory("industry"),
+                        onMouseLeave: () => setActiveB2BCategory(null),
+                        onClick: undefined,
+                      }
+                    : {
+                        onClick: (e) => {
+                          e.stopPropagation();
+                          handleB2BCategoryClick("industry");
+                        },
+                      })}
                   className="relative"
                 >
                   <div
@@ -347,18 +361,21 @@ const Leftbar = () => {
                       </Link>
                       <Link
                         to="/products?category=firewalls&type=b2b"
+                        onClick={() => { setActiveB2BCategory(null); setActiveMainMenu(null); }}
                         className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                       >
                         Firewalls
                       </Link>
                       <Link
                         to="/products?category=online-ups&type=b2b"
+                        onClick={() => { setActiveB2BCategory(null); setActiveMainMenu(null); }}
                         className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                       >
                         Online UPS
                       </Link>
                       <Link
                         to="/products?category=storages&type=b2b"
+                        onClick={() => { setActiveB2BCategory(null); setActiveMainMenu(null); }}
                         className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                       >
                         Storages
@@ -368,12 +385,18 @@ const Leftbar = () => {
                 </div>
                 {/* Medical category */}
                 <div
-                  onMouseEnter={() => setActiveB2BCategory("medical")}
-                  onMouseLeave={() => setActiveB2BCategory(null)}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleB2BCategoryClick("medical");
-                  }}
+                  {...(device === "desktop"
+                    ? {
+                        onMouseEnter: () => setActiveB2BCategory("medical"),
+                        onMouseLeave: () => setActiveB2BCategory(null),
+                        onClick: undefined,
+                      }
+                    : {
+                        onClick: (e) => {
+                          e.stopPropagation();
+                          handleB2BCategoryClick("medical");
+                        },
+                      })}
                   className="relative"
                 >
                   <div
@@ -417,12 +440,18 @@ const Leftbar = () => {
                 </div>
                 {/* Hospitality category */}
                 <div
-                  onMouseEnter={() => setActiveB2BCategory("hospitality")}
-                  onMouseLeave={() => setActiveB2BCategory(null)}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleB2BCategoryClick("hospitality");
-                  }}
+                  {...(device === "desktop"
+                    ? {
+                        onMouseEnter: () => setActiveB2BCategory("hospitality"),
+                        onMouseLeave: () => setActiveB2BCategory(null),
+                        onClick: undefined,
+                      }
+                    : {
+                        onClick: (e) => {
+                          e.stopPropagation();
+                          handleB2BCategoryClick("hospitality");
+                        },
+                      })}
                   className="relative"
                 >
                   <div
@@ -439,42 +468,49 @@ const Leftbar = () => {
                     <div className="fixed top-20 left-[18rem] w-40 h-screen bg-[#0f172a] border border-slate-700 rounded shadow-md z-[1000] transition-all duration-300">
                       <Link
                         to="/products?category=digital-signage&type=b2b"
+                        onClick={() => { setActiveB2BCategory(null); setActiveMainMenu(null); }}
                         className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                       >
                         Digital Signage
                       </Link>
                       <Link
                         to="/products?category=led-walls&type=b2b"
+                        onClick={() => { setActiveB2BCategory(null); setActiveMainMenu(null); }}
                         className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                       >
                         LED Walls
                       </Link>
                       <Link
                         to="/products?category=public-addressing-system&type=b2b"
+                        onClick={() => { setActiveB2BCategory(null); setActiveMainMenu(null); }}
                         className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                       >
                         Public Addressing System
                       </Link>
                       <Link
                         to="/products?category=commercial-tvs&type=b2b"
+                        onClick={() => { setActiveB2BCategory(null); setActiveMainMenu(null); }}
                         className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                       >
                         Commercial TVs
                       </Link>
                       <Link
                         to="/products?category=commercial-printers&type=b2b"
+                        onClick={() => { setActiveB2BCategory(null); setActiveMainMenu(null); }}
                         className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                       >
                         Commercial Printers
                       </Link>
                       <Link
                         to="/products?category=ptz-cameras&type=b2b"
+                        onClick={() => { setActiveB2BCategory(null); setActiveMainMenu(null); }}
                         className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                       >
                         PTZ Cameras
                       </Link>
                       <Link
                         to="/products?category=thermal-printers&type=b2b"
+                        onClick={() => { setActiveB2BCategory(null); setActiveMainMenu(null); }}
                         className="block px-4 py-2 text-sm text-white hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                       >
                         Thermal Printers
